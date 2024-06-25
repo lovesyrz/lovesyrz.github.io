@@ -10,11 +10,11 @@
     <title>26</title>
     <url>/2024/06/25/todolists/26/</url>
     <content><![CDATA[<h1><span id="624">6.24</span></h1><ul>
-<li><input disabled type="checkbox"> 复习数学建模</li>
+<li><input checked disabled type="checkbox"> 复习数学建模</li>
 </ul>
 <h1><span id="625">6.25</span></h1><ul>
 <li><input disabled type="checkbox"> 数学建模考试14:00-16:00</li>
-<li><input disabled type="checkbox"> 完善hexo</li>
+<li><input checked disabled type="checkbox"> 完善hexo [completion:: 2024-06-25 12:37]</li>
 </ul>
 ]]></content>
       <categories>
