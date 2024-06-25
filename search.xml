@@ -13,8 +13,12 @@
 <li><input checked disabled type="checkbox"> 复习数学建模</li>
 </ul>
 <h1><span id="625">6.25</span></h1><ul>
-<li><input disabled type="checkbox"> 数学建模考试14:00-16:00</li>
+<li><input checked disabled type="checkbox"> 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li>
 <li><input checked disabled type="checkbox"> 完善hexo [completion:: 2024-06-25 12:37]</li>
+</ul>
+<h1><span id="626">6.26</span></h1><ul>
+<li><input disabled type="checkbox"> 去趟阿姨家 16:00-?</li>
+<li><input disabled type="checkbox"> 历年卷一套</li>
 </ul>
 ]]></content>
       <categories>
@@ -134,6 +138,38 @@
         <category>学习</category>
         <category>数学分析</category>
         <category>二重积分</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>数学建模回忆卷</title>
+    <url>/2024/06/25/%E9%9A%8F%E4%BE%BF%E5%86%99%E7%82%B9/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%9B%9E%E5%BF%86%E5%8D%B7/</url>
+    <content><![CDATA[<p>一、现有共 $m$ 个地点可设服务区，$n$ 个小区需要被服务。在 $i$ 地设立服务区需要花费 $f_i$ ，$i$ 地的服务区为 $j$ 校区服务需要维护费 $c_{ij}$ ，现需要寻找一种方法，使得所有花费最小，并需满足以下条件</p>
+<ol>
+<li>存在部分小区对，没有服务区同时对这两个小区服务</li>
+<li>每个小区正好被两个服务区服务，存在小区对，有公共服务区为其服务</li>
+</ol>
+<p>二、现有 $n$ 家公司进行技术投标，每家公司会从剩下 $n-1$ 家公司中随机选择一家进行跟随。所有公司按照某一确定的顺序进行投标选择，其中，以 $p_0$ 的概率选择 $A$ 技术，以 $p_1$ 的概率选择 $B$ 技术，剩下 $1-p_0-p_1$ 的概率进行跟随，跟随情况下，若跟随的公司选择 $A$ 技术，则该公司也选择 $A$ 技术，若跟随的公司未选择或选择 $B$ 技术，则该公司也选择 $B$ 技术。<br>现用 $A_i$ 表示有 $i$ 家公司进行投标后，投标 $A$ 技术的公司数量的数学期望</p>
+<ol>
+<li>请给出 $A_i$ 的递推公式</li>
+<li>若 $n$ 趋向无穷大，求投标 $A$ 技术的公司的占比</li>
+</ol>
+<p>三、一个物体以初速度 $v$ 从水平面上抛出，初速度与水平面的夹角为 $\theta$ 。记这个物体从抛出到落回水平面时所经过的曲线的长度为 $L(v,\theta)$ </p>
+<ol>
+<li>求 $L(v,\theta)$ 的具体公式，可以带积分or微分</li>
+<li>证明：$L(v,\frac{\pi}{4})&gt;L(v,\frac{\pi}{2})$ </li>
+<li>（附加）求 $\hat{\theta}&#x3D;arg \underset{\theta}{min}L(v,\theta)$</li>
+</ol>
+<p>四、现有三个容量为 $n$ 的容器，里面都装有水，水的总量为 $n$ 。现规定两个容器的一个合理倾倒操作为，从盛水量较多的容器向盛水量较少的容器中倾倒等同与盛水量较少的容器的盛水量。即若两个容器的盛水量分别为$x,y$ ，$x\le y$ ，则合理倾倒后两个容器的盛水量变为 $2x,y-x$<br>现在，我们有三个容器 $A,B,C$ ，它们初始的盛水量为 $a,b,c$ 。其中 $a\le b\le c$ ， $a,b,c$ 均为正整数。</p>
+<ol>
+<li>令 $p&#x3D;\lfloor\frac{b}{a}\rfloor$ ，$q&#x3D;\lceil\frac{b}{a}\rceil$ ，$k&#x3D;\lfloor log_2~p\rfloor$ 。请证明：$min{b-pa,qa-b}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
+<li>假设 $b-pa\le\frac{a}{2}$ 。请证明：存在一种方法，使得能够在不超过 $k+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
+<li>利用2与4，证明：存在一种方法，能够在不超过 $(log_2~n)^2$ 次合理倾倒下，将一个容器清空</li>
+<li>（附加）假设 $qa-b\le\frac{a}{2}$ 。请证明：存在一种方法，使得在不超过 $\lfloor log_2~q\rfloor+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$</li>
+</ol>
+]]></content>
+      <categories>
+        <category>回忆卷</category>
+        <category>数学建模</category>
       </categories>
   </entry>
 </search>
