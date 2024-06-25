@@ -223,7 +223,9 @@ s.t.~~~~&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\
 </tbody>
 </table>
 </div>
-<p>$\begin{align<em>}A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align</em>}$<br>其中 $A_1=p_0$<br>2.</p>
+<script type="math/tex; mode=display">
+\begin{align*}A_{i+1}&=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\&= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align*}
+$</script><p>其中 $A_1=p_0$<br>2.</p>
 ]]></content>
       <categories>
         <category>回忆卷</category>
