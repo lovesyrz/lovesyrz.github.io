@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"lovesyrz.gihub.io","root":"/","images":"/images","scheme":"Mist","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lovesyrz.gihub.io","root":"/","images":"/images","scheme":"Pisces","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
 
     <meta name="description" content="题目一、现有共 $m$ 个地点可设服务区，$n$ 个小区需要被服务。在 $i$ 地设立服务区需要花费 $f_i$ ，其中$i$ 地的服务区为 $j$ 校区服务需要维护费为 $c_{ij}$ ，现需要寻找一种方法，使得所有花费最小，并需满足以下条件  存在部分小区对，没有服务区同时对这两个小区服务 每个小区正好被两个服务区服务，存在部分小区对，有公共服务区为其服务  二、现有 $n$ 家公司进行技术">
 <meta property="og:type" content="article">
@@ -28,10 +28,9 @@
 <meta property="og:description" content="题目一、现有共 $m$ 个地点可设服务区，$n$ 个小区需要被服务。在 $i$ 地设立服务区需要花费 $f_i$ ，其中$i$ 地的服务区为 $j$ 校区服务需要维护费为 $c_{ij}$ ，现需要寻找一种方法，使得所有花费最小，并需满足以下条件  存在部分小区对，没有服务区同时对这两个小区服务 每个小区正好被两个服务区服务，存在部分小区对，有公共服务区为其服务  二、现有 $n$ 家公司进行技术">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-25T10:26:42.066Z">
-<meta property="article:modified_time" content="2024-06-26T00:39:00.058Z">
+<meta property="article:modified_time" content="2024-06-26T03:15:28.116Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="回忆卷">
-<meta property="article:tag" content="数学建模">
 <meta name="twitter:card" content="summary">
 
 
@@ -129,18 +128,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-count">18</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -206,7 +205,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-26 08:39:00" itemprop="dateModified" datetime="2024-06-26T08:39:00+08:00">2024-06-26</time>
+      <time title="Modified: 2024-06-26 11:15:28" itemprop="dateModified" datetime="2024-06-26T11:15:28+08:00">2024-06-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -267,37 +266,20 @@
 <ol>
 <li>求 $L(v,\theta)$ 的具体公式，可以带积分or微分</li>
 <li>证明：$L(v,\frac{\pi}{4})&gt;L(v,\frac{\pi}{2})$ </li>
-<li>（附加）求 $\hat{\theta}=arg \underset{\theta}{min}L(v,\theta)$ </li>
+<li>（附加）求 $\hat{\theta}=arg \underset{\theta}{min}L(v,\theta)$ <span id="more"></span>
+
+</li>
 </ol>
 <p>四、现有三个容量为 $n$ 的容器，里面都装有水，水的总量为 $n$ 。现规定两个容器的一个合理倾倒操作为，从盛水量较多的容器向盛水量较少的容器中倾倒等同与盛水量较少的容器的盛水量。即若两个容器的盛水量分别为$x,y$ ，$x\le y$ ，则合理倾倒后两个容器的盛水量变为 $2x,y-x$<br>现在，我们有三个容器 $A,B,C$ ，它们初始的盛水量为 $a,b,c$ 。其中 $a\le b\le c$ ， $a,b,c$ 均为正整数。</p>
 <ol>
-<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min\{b-pa,qa-b\}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
+<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min{b-pa,qa-b}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
 <li>假设 $b-pa\le\frac{a}{2}$ 。请证明：存在一种方法，使得能够在不超过 $k+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 <li>利用2与4，证明：存在一种方法，能够在不超过 $(log_2~n)^2$ 次合理倾倒下，将一个容器清空</li>
 <li>（附加）假设 $qa-b\le\frac{a}{2}$ 。请证明：存在一种方法，使得在不超过 $\lfloor log_2~q\rfloor+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 </ol>
 <h1><span id="解答">解答</span></h1><h2><span id="solution-1">solution 1</span></h2><ol>
-<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
-x_{ij}=\begin{cases}
-1,在地点i设立服务区并为j小区服务 \\
-0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
-\end{cases}</script>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$  <script type="math/tex; mode=display">
-\begin{align*}
-min~~~~&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\
-s.t.~~~~&x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\
-&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
-\end{align*}</script></li>
-<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
-x_{ij}=\begin{cases}
-1,在地点i设立服务区并为j小区服务 \\
-0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
-\end{cases}</script>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$  <script type="math/tex; mode=display">
-\begin{align*}
-min~~~~&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\
-s.t.~~~~&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\
-&\sum\limits_{i=1}^mx_{ij}=2\\
-&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
-\end{align*}</script></li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S={(j,k)|(j,k)为对应的小区对}$<br>$$<br>\begin{align<em>}<br>min<del>&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\<br>s.t.</del>&amp;x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align</em>}<br>$$</li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S={(j,k)|(j,k)为对应的小区对}$<br>$$<br>\begin{align<em>}<br>min<del>&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\<br>s.t.</del>&amp;\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\<br>&amp;\sum\limits_{i=1}^mx_{ij}=2\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align</em>}<br>$$</li>
 </ol>
 <h2><span id="solution-2">solution 2</span></h2><ol>
 <li>现假设前 $i$ 个公司已经投标完毕，现在轮到第 $i+1$ 个公司<ol>
@@ -315,27 +297,45 @@ s.t.~~~~&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\
 </ol>
 </li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">$X$</th>
-<th style="text-align:center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
-<th style="text-align:center">$A_i$</th>
+<th align="center">$X$</th>
+<th align="center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
+<th align="center">$A_i$</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">$P$</td>
-<td style="text-align:center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
-<td style="text-align:center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
+<tbody><tr>
+<td align="center">$P$</td>
+<td align="center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
+<td align="center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
 </tr>
-</tbody>
-</table>
-</div>
-<script type="math/tex; mode=display">
-\begin{align*}A_{i+1}&=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\&= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align*}
-$</script><p>其中 $A_1=p_0$<br>2.</p>
+<tr>
+<td align="center">$$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">\begin{align<em>}A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align</em>}</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">$$$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">其中 $A_1=p_0$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2.</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -346,7 +346,6 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E5%9B%9E%E5%BF%86%E5%8D%B7/" rel="tag"># 回忆卷</a>
-              <a href="/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/" rel="tag"># 数学建模</a>
           </div>
 
         
@@ -358,6 +357,9 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/06/26/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E6%95%B0%E4%B8%89/2020/" rel="next" title="2020年数三">
+                  2020年数三 <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -415,7 +417,7 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
       </span>
     </span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
   </div>
 
     </div>
@@ -459,7 +461,7 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
 
   
 
-  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"per_page":true,"tags":"none","mhchem":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
 <script src="/js/third-party/math/mathjax.js"></script>
 
 

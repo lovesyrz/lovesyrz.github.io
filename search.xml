@@ -7,7 +7,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>planning</title>
+    <title>2024暑期planning</title>
     <url>/2024/06/24/plan/planning/</url>
     <content><![CDATA[<h1><span id="任务安排">任务安排</span></h1><ol>
 <li>刷刷题儿</li>
@@ -38,29 +38,11 @@
 ]]></content>
       <categories>
         <category>目标</category>
+        <category>2024暑期目标</category>
       </categories>
-  </entry>
-  <entry>
-    <title>日程表（暂定）</title>
-    <url>/2024/06/24/plan/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</url>
-    <content><![CDATA[<ul>
-<li>7：00 起床</li>
-<li>7：30-8：00 跑步</li>
-<li>8：00-8：20 吃饭</li>
-<li>8：20-8：50 背单词</li>
-<li>8：50-9：10 洗澡</li>
-<li>9：10-11：40 做套卷子（图书馆）</li>
-<li>11：40-12：40 吃个饭+晾衣服</li>
-<li>12：40-13：40 睡个觉</li>
-<li>13：40-17：40 纠错、复习</li>
-<li>17：40-18：40 吃饭</li>
-<li>18：40-21：40 学习</li>
-<li>22：00-23：30 快乐玩耍</li>
-</ul>
-]]></content>
-      <categories>
-        <category>目标</category>
-      </categories>
+      <tags>
+        <tag>目标</tag>
+      </tags>
   </entry>
   <entry>
     <title>数学建模回忆卷</title>
@@ -79,37 +61,20 @@
 <ol>
 <li>求 $L(v,\theta)$ 的具体公式，可以带积分or微分</li>
 <li>证明：$L(v,\frac{\pi}{4})&gt;L(v,\frac{\pi}{2})$ </li>
-<li>（附加）求 $\hat{\theta}=arg \underset{\theta}{min}L(v,\theta)$ </li>
+<li>（附加）求 $\hat{\theta}=arg \underset{\theta}{min}L(v,\theta)$ <span id="more"></span>
+
+</li>
 </ol>
 <p>四、现有三个容量为 $n$ 的容器，里面都装有水，水的总量为 $n$ 。现规定两个容器的一个合理倾倒操作为，从盛水量较多的容器向盛水量较少的容器中倾倒等同与盛水量较少的容器的盛水量。即若两个容器的盛水量分别为$x,y$ ，$x\le y$ ，则合理倾倒后两个容器的盛水量变为 $2x,y-x$<br>现在，我们有三个容器 $A,B,C$ ，它们初始的盛水量为 $a,b,c$ 。其中 $a\le b\le c$ ， $a,b,c$ 均为正整数。</p>
 <ol>
-<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min\{b-pa,qa-b\}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
+<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min{b-pa,qa-b}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
 <li>假设 $b-pa\le\frac{a}{2}$ 。请证明：存在一种方法，使得能够在不超过 $k+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 <li>利用2与4，证明：存在一种方法，能够在不超过 $(log_2~n)^2$ 次合理倾倒下，将一个容器清空</li>
 <li>（附加）假设 $qa-b\le\frac{a}{2}$ 。请证明：存在一种方法，使得在不超过 $\lfloor log_2~q\rfloor+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 </ol>
 <h1><span id="解答">解答</span></h1><h2><span id="solution-1">solution 1</span></h2><ol>
-<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
-x_{ij}=\begin{cases}
-1,在地点i设立服务区并为j小区服务 \\
-0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
-\end{cases}</script>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$  <script type="math/tex; mode=display">
-\begin{align*}
-min~~~~&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\
-s.t.~~~~&x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\
-&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
-\end{align*}</script></li>
-<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
-x_{ij}=\begin{cases}
-1,在地点i设立服务区并为j小区服务 \\
-0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
-\end{cases}</script>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$  <script type="math/tex; mode=display">
-\begin{align*}
-min~~~~&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\
-s.t.~~~~&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\
-&\sum\limits_{i=1}^mx_{ij}=2\\
-&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
-\end{align*}</script></li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S={(j,k)|(j,k)为对应的小区对}$<br>$$<br>\begin{align<em>}<br>min<del>&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\<br>s.t.</del>&amp;x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align</em>}<br>$$</li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S={(j,k)|(j,k)为对应的小区对}$<br>$$<br>\begin{align<em>}<br>min<del>&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\<br>s.t.</del>&amp;\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\<br>&amp;\sum\limits_{i=1}^mx_{ij}=2\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align</em>}<br>$$</li>
 </ol>
 <h2><span id="solution-2">solution 2</span></h2><ol>
 <li>现假设前 $i$ 个公司已经投标完毕，现在轮到第 $i+1$ 个公司<ol>
@@ -127,27 +92,45 @@ s.t.~~~~&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\
 </ol>
 </li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">$X$</th>
-<th style="text-align:center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
-<th style="text-align:center">$A_i$</th>
+<th align="center">$X$</th>
+<th align="center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
+<th align="center">$A_i$</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">$P$</td>
-<td style="text-align:center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
-<td style="text-align:center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
+<tbody><tr>
+<td align="center">$P$</td>
+<td align="center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
+<td align="center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
 </tr>
-</tbody>
-</table>
-</div>
-<script type="math/tex; mode=display">
-\begin{align*}A_{i+1}&=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\&= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align*}
-$</script><p>其中 $A_1=p_0$<br>2.</p>
+<tr>
+<td align="center">$$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">\begin{align<em>}A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align</em>}</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">$$$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">其中 $A_1=p_0$</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">2.</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
 ]]></content>
       <categories>
         <category>回忆卷</category>
@@ -155,7 +138,6 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
       </categories>
       <tags>
         <tag>回忆卷</tag>
-        <tag>数学建模</tag>
       </tags>
   </entry>
   <entry>
@@ -169,29 +151,9 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
         <category>学习</category>
         <category>数学分析</category>
       </categories>
-  </entry>
-  <entry>
-    <title>26</title>
-    <url>/2024/06/25/todolists/26/</url>
-    <content><![CDATA[<h1><span id="624">6.24</span></h1><ul>
-<li>[x] 复习数学建模</li>
-</ul>
-<h1><span id="625">6.25</span></h1><ul>
-<li>[x] 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li>
-<li>[x] 完善hexo [completion:: 2024-06-25 12:37]</li>
-</ul>
-<h1><span id="626">6.26</span></h1><ul>
-<li>[ ] 去趟阿姨家 16:00-?</li>
-<li>[ ] 历年卷一套</li>
-</ul>
-]]></content>
-      <categories>
-        <category>todo</category>
-        <category>26周</category>
-      </categories>
       <tags>
-        <tag>todo</tag>
-        <tag>26周</tag>
+        <tag>复习科目</tag>
+        <tag>数学分析</tag>
       </tags>
   </entry>
   <entry>
@@ -205,6 +167,10 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
         <category>学习</category>
         <category>常微分方程</category>
       </categories>
+      <tags>
+        <tag>常微分方程</tag>
+        <tag>复习科目</tag>
+      </tags>
   </entry>
   <entry>
     <title>二重积分</title>
@@ -215,6 +181,9 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
         <category>数学分析</category>
         <category>二重积分</category>
       </categories>
+      <tags>
+        <tag>数学分析</tag>
+      </tags>
   </entry>
   <entry>
     <title>概率论</title>
@@ -227,6 +196,10 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
         <category>学习</category>
         <category>概率论</category>
       </categories>
+      <tags>
+        <tag>复习科目</tag>
+        <tag>概率论</tag>
+      </tags>
   </entry>
   <entry>
     <title>高等代数</title>
@@ -239,5 +212,73 @@ $</script><p>其中 $A_1=p_0$<br>2.</p>
         <category>学习</category>
         <category>高等代数</category>
       </categories>
+      <tags>
+        <tag>复习科目</tag>
+        <tag>高等代数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020年数三</title>
+    <url>/2024/06/26/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E6%95%B0%E4%B8%89/2020/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>历年卷</category>
+        <category>数三</category>
+        <category>2020</category>
+      </categories>
+      <tags>
+        <tag>数三</tag>
+        <tag>历年卷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2024暑期日程表（暂定）</title>
+    <url>/2024/06/24/plan/2024%E6%9A%91%E6%9C%9F%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</url>
+    <content><![CDATA[<ul>
+<li>7：00 起床</li>
+<li>7：30-8：00 跑步</li>
+<li>8：00-8：20 吃饭</li>
+<li>8：20-8：50 背单词</li>
+<li>8：50-9：10 洗澡</li>
+<li>9：10-11：40 做套卷子（图书馆）</li>
+<li>11：40-12：40 吃个饭+晾衣服</li>
+<li>12：40-13：40 睡个觉</li>
+<li>13：40-17：40 纠错、复习</li>
+<li>17：40-18：40 吃饭</li>
+<li>18：40-21：40 学习</li>
+<li>22：00-23：30 快乐玩耍</li>
+</ul>
+]]></content>
+      <categories>
+        <category>作息表</category>
+        <category>2024暑期作息表</category>
+      </categories>
+      <tags>
+        <tag>作息表</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>26周</title>
+    <url>/2024/06/25/todolists/26%E5%91%A8/</url>
+    <content><![CDATA[<h1><span id="624">6.24</span></h1><ul>
+<li><input checked disabled type="checkbox"> 复习数学建模</li>
+</ul>
+<h1><span id="625">6.25</span></h1><ul>
+<li><input checked disabled type="checkbox"> 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li>
+<li><input checked disabled type="checkbox"> 完善hexo [completion:: 2024-06-25 12:37]</li>
+</ul>
+<h1><span id="626">6.26</span></h1><ul>
+<li><input disabled type="checkbox"> 去趟阿姨家 16:00-?</li>
+<li><input checked disabled type="checkbox"> 历年卷一套</li>
+</ul>
+]]></content>
+      <categories>
+        <category>todo</category>
+        <category>2024</category>
+        <category>26周</category>
+      </categories>
+      <tags>
+        <tag>todo</tag>
+      </tags>
   </entry>
 </search>
