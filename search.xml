@@ -10,7 +10,7 @@
     <title>数学公式显示问题</title>
     <url>/2024/06/26/Hexo/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ul>
-<li>如果你已经按照其它教程更换了渲染引擎，请直接转至[[数学公式显示问题#我的问题&amp;解决方案]]版块（里面可能会有你需要的答案，仅以我自己遇到的问题为参考）</li>
+<li>如果你已经按照其它教程更换了渲染引擎，请直接转至<a href="#我的问题&解决方案">我的问题&amp;解决方案</a>版块（里面可能会有你需要的答案，仅以我自己遇到的问题为参考）</li>
 </ul>
 <p>我们用hexo+github/gitee搭建个人博客，会发现无法显示markdown文件里的latex公式，这是因为hexo默认支持的hexo-renderer-marked渲染器不支持latex公式。那我们应该怎样做才能支持显示latex公式呢？以next主题为例，目前Next支持两种数学公式渲染引擎，分别为Mathjax和Katex。由于Mathjax支持的更为全面，因此我们选择Mathjax。</p>
 <span id="more"></span>
@@ -247,6 +247,22 @@
       </tags>
   </entry>
   <entry>
+    <title>概率论</title>
+    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>概率论</category>
+      </categories>
+      <tags>
+        <tag>复习</tag>
+        <tag>概率论</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>数学分析</title>
     <url>/2024/06/24/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/</url>
     <content><![CDATA[<blockquote>
@@ -276,22 +292,6 @@
       <tags>
         <tag>复习</tag>
         <tag>高等代数</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>概率论</title>
-    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>概率论</category>
-      </categories>
-      <tags>
-        <tag>复习</tag>
-        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
