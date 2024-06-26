@@ -118,9 +118,13 @@
 </ul>
 <h1><span id="626">6.26</span></h1><ul>
 <li><input checked disabled type="checkbox"> 去趟阿姨家 16:00-? [completion:: 2024-06-26 22:38]</li>
-<li><input checked disabled type="checkbox"> 历年卷一套</li>
-<li><input disabled type="checkbox"> 数学建模回忆卷</li>
-<li><input disabled type="checkbox"> 历年卷知识点总结</li>
+<li><input checked disabled type="checkbox"> 历年卷一套 [completion:: 2024-06-26 23:38]</li>
+<li><input checked disabled type="checkbox"> 数学建模回忆卷 [completion:: 2024-06-26 23:36]</li>
+<li>[-] 历年卷知识点总结</li>
+</ul>
+<h1><span id="627">6.27</span></h1><ul>
+<li><input disabled type="checkbox"> 历年卷</li>
+<li><input disabled type="checkbox"> 历年卷知识点整理</li>
 </ul>
 ]]></content>
       <categories>
@@ -130,6 +134,22 @@
       </categories>
       <tags>
         <tag>todo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常微分方程</title>
+    <url>/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将整理遇到的所有<strong>常微分方程</strong>知识点——做题&amp;复习。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>常微分方程</category>
+      </categories>
+      <tags>
+        <tag>复习</tag>
+        <tag>常微分方程</tag>
       </tags>
   </entry>
   <entry>
@@ -236,22 +256,6 @@
       </tags>
   </entry>
   <entry>
-    <title>常微分方程</title>
-    <url>/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将整理遇到的所有<strong>常微分方程</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>常微分方程</category>
-      </categories>
-      <tags>
-        <tag>复习</tag>
-        <tag>常微分方程</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二重积分</title>
     <url>/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/</url>
     <content><![CDATA[]]></content>
@@ -278,22 +282,6 @@
       <tags>
         <tag>复习</tag>
         <tag>数学分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>概率论</title>
-    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>概率论</category>
-      </categories>
-      <tags>
-        <tag>复习</tag>
-        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
@@ -324,6 +312,22 @@
       <tags>
         <tag>历年卷</tag>
         <tag>数三</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>概率论</title>
+    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>概率论</category>
+      </categories>
+      <tags>
+        <tag>复习</tag>
+        <tag>概率论</tag>
       </tags>
   </entry>
 </search>
