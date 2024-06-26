@@ -7,29 +7,28 @@
 ]]></content>
   </entry>
   <entry>
-    <title>2024暑期日程表（暂定）</title>
-    <url>/2024/06/24/plan/2024%E6%9A%91%E6%9C%9F%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</url>
+    <title>数学公式显示问题</title>
+    <url>/2024/06/26/Hexo/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ul>
-<li>7：00 起床</li>
-<li>7：30-8：00 跑步</li>
-<li>8：00-8：20 吃饭</li>
-<li>8：20-8：50 背单词</li>
-<li>8：50-9：10 洗澡</li>
-<li>9：10-11：40 做套卷子（图书馆）</li>
-<li>11：40-12：40 吃个饭+晾衣服</li>
-<li>12：40-13：40 睡个觉</li>
-<li>13：40-17：40 纠错、复习</li>
-<li>17：40-18：40 吃饭</li>
-<li>18：40-21：40 学习</li>
-<li>22：00-23：30 快乐玩耍</li>
+<li>如果你已经按照其它教程更换了渲染引擎，请直接转至[[数学公式显示问题#我的问题&amp;解决方案]]版块（里面可能会有你需要的答案，仅以我自己遇到的问题为参考）</li>
 </ul>
+<p>我们用hexo+github/gitee搭建个人博客，会发现无法显示markdown文件里的latex公式，这是因为hexo默认支持的hexo-renderer-marked渲染器不支持latex公式。那我们应该怎样做才能支持显示latex公式呢？以next主题为例，目前Next支持两种数学公式渲染引擎，分别为Mathjax和Katex。由于Mathjax支持的更为全面，因此我们选择Mathjax。</p>
+<h1><span id="更换渲染引擎">更换渲染引擎</span></h1><p>在blog根目录下执行<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure><br>我自己目前所用的就是这个，不过也有人用pandoc的，具体可以参考 <a href="https://blog.csdn.net/gorray/article/details/122398901">https://blog.csdn.net/gorray/article/details/122398901</a></p>
+<p>接下来打开<code>blog\node_modules\kramed\lib\rules\inline.js</code><br>将下面两行进行替换（可以在已有的行前加上//），这是解决语义冲突的问题<br><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line">  <span class="attr">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br><span class="line"><span class="comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line">  <span class="attr">em</span>: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure></p>
+<p>最后，在<code>next\_config.yml</code>文件中查找mathjax并将enable项改为true<br><figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mathjax数学公式</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># Katex数学公式(allpost设置为false时只有头部设置math:true的文章才开启)</span></span><br><span class="line"><span class="attr">katex:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">allpost:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">copy_tex:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure><br>至此，我们的文件已经修改好了，如果你需要让你的文件可以编译公式，那你还需要在文件开头加上<code>mathjax: true</code>，如下（别忘了冒号后要加空格）<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure><br>如果你不想这么麻烦，也可以在主题的<code>next\_config.yml</code>找到<code>every_page</code>，将其值设为true，具体效果如下<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line"></span><br><span class="line">  # Default (false) will load mathjax / katex script on demand.</span><br><span class="line"></span><br><span class="line">  # That is it only render those page which has `mathjax: true` in front-matter.</span><br><span class="line"></span><br><span class="line">  # If you set it to true, it will load mathjax / katex script EVERY PAGE.</span><br><span class="line"></span><br><span class="line">  every_page: true</span><br></pre></td></tr></table></figure><br>不过听别人说好像还会有问题，如果出现问题的话还是乖乖的每篇文章加上<code>mathjax: true</code> 叭</p>
+<h1><span id="我的问题amp解决方案">我的问题&amp;解决方案</span></h1><h2><span id="问题">问题</span></h2><p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
+<h2><span id="解决方案">解决方案</span></h2><ol>
+<li>换行符换为<code>\\\\</code>四个，这样转为html后仍会保留两个，可以正常编译</li>
+<li>不建议使用 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>，直接去掉*，目前测试下来甚至不会出现编号（不知道哪天如果需要编号该怎么办）</li>
+<li>公式内空格<code>\quad</code></li>
+<li>花括号，我们之前使用的是<code>\&#123;\&#125;</code>，按道理来说我们应该改成<code>\\&#123;\\&#125;</code>，但是这样的话我们自己的markdown就没法显示花括号了，但是改成三个就可以<code>\\\&#123;\\\&#125;</code>，可能麻烦一点，但是至少能解决这方面的问题了。</li>
+</ol>
 ]]></content>
       <categories>
-        <category>作息表</category>
-        <category>2024暑期作息表</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>作息表</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -71,6 +70,32 @@
       </tags>
   </entry>
   <entry>
+    <title>2024暑期日程表（暂定）</title>
+    <url>/2024/06/24/plan/2024%E6%9A%91%E6%9C%9F%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</url>
+    <content><![CDATA[<ul>
+<li>7：00 起床</li>
+<li>7：30-8：00 跑步</li>
+<li>8：00-8：20 吃饭</li>
+<li>8：20-8：50 背单词</li>
+<li>8：50-9：10 洗澡</li>
+<li>9：10-11：40 做套卷子（图书馆）</li>
+<li>11：40-12：40 吃个饭+晾衣服</li>
+<li>12：40-13：40 睡个觉</li>
+<li>13：40-17：40 纠错、复习</li>
+<li>17：40-18：40 吃饭</li>
+<li>18：40-21：40 学习</li>
+<li>22：00-23：30 快乐玩耍</li>
+</ul>
+]]></content>
+      <categories>
+        <category>作息表</category>
+        <category>2024暑期作息表</category>
+      </categories>
+      <tags>
+        <tag>作息表</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>声明（关于数学公式无法正常显示的bug）（已解决）</title>
     <url>/2024/06/26/%E5%A3%B0%E6%98%8E/%E5%A3%B0%E6%98%8E/</url>
     <content><![CDATA[<p><del>目前遇到行间公式无法正常显示的bug，正在尽力研究，如有相应的解决方案，请联系:</del> 2139475218@qq.com</p>
@@ -81,32 +106,6 @@
       </categories>
       <tags>
         <tag>声明</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>26周</title>
-    <url>/2024/06/25/todolists/26%E5%91%A8/</url>
-    <content><![CDATA[<h1><span id="624">6.24</span></h1><ul>
-<li><input checked disabled type="checkbox"> 复习数学建模</li>
-</ul>
-<h1><span id="625">6.25</span></h1><ul>
-<li><input checked disabled type="checkbox"> 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li>
-<li><input checked disabled type="checkbox"> 完善hexo [completion:: 2024-06-25 12:37]</li>
-</ul>
-<h1><span id="626">6.26</span></h1><ul>
-<li><input disabled type="checkbox"> 去趟阿姨家 16:00-?</li>
-<li><input checked disabled type="checkbox"> 历年卷一套</li>
-<li><input disabled type="checkbox"> 数学建模回忆卷</li>
-<li><input disabled type="checkbox"> 历年卷知识点总结</li>
-</ul>
-]]></content>
-      <categories>
-        <category>todo</category>
-        <category>2024</category>
-        <category>26周</category>
-      </categories>
-      <tags>
-        <tag>todo</tag>
       </tags>
   </entry>
   <entry>
@@ -123,7 +122,6 @@
 <li>若 $n$ 趋向无穷大，求投标 $A$ 技术的公司的占比</li>
 </ol>
 <span id="more"></span>
-
 <p>三、一个物体以初速度 $v$ 从水平面上抛出，初速度与水平面的夹角为 $\theta$ 。记这个物体从抛出到落回水平面时所经过的曲线的长度为 $L(v,\theta)$ </p>
 <ol>
 <li>求 $L(v,\theta)$ 的具体公式，可以带积分or微分</li>
@@ -132,14 +130,34 @@
 </ol>
 <p>四、现有三个容量为 $n$ 的容器，里面都装有水，水的总量为 $n$ 。现规定两个容器的一个合理倾倒操作为，从盛水量较多的容器向盛水量较少的容器中倾倒等同与盛水量较少的容器的盛水量。即若两个容器的盛水量分别为$x,y$ ，$x\le y$ ，则合理倾倒后两个容器的盛水量变为 $2x,y-x$<br>现在，我们有三个容器 $A,B,C$ ，它们初始的盛水量为 $a,b,c$ 。其中 $a\le b\le c$ ， $a,b,c$ 均为正整数。</p>
 <ol>
-<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min{b-pa,qa-b}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
+<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min\{b-pa,qa-b\}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
 <li>假设 $b-pa\le\frac{a}{2}$ 。请证明：存在一种方法，使得能够在不超过 $k+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 <li>利用2与4，证明：存在一种方法，能够在不超过 $(log_2~n)^2$ 次合理倾倒下，将一个容器清空</li>
 <li>（附加）假设 $qa-b\le\frac{a}{2}$ 。请证明：存在一种方法，使得在不超过 $\lfloor log_2~q\rfloor+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 </ol>
 <h1><span id="解答">解答</span></h1><h2><span id="solution-1">solution 1</span></h2><ol>
-<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=<br>\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \\<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$<br>$$<br>\begin{align}<br>min&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\<br>s.t.&amp;x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align}<br>$$</li>
-<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \\<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$<br>$$<br>\begin{align}<br>min&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\<br>s.t.&amp;\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\<br>&amp;\sum\limits_{i=1}^mx_{ij}=2\\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align}<br>$$</li>
+<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
+x_{ij}=
+\begin{cases}
+1,在地点i设立服务区并为j小区服务 \\\\ 
+0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
+\end{cases}</script>并假设$S=\\\{(j,k)|(j,k)为对应的小区对\\\}$  <script type="math/tex; mode=display">
+\begin{align}
+min\quad&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\\\
+s.t.\quad&x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\\\
+&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
+\end{align}</script></li>
+<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
+x_{ij}=\begin{cases}
+1,在地点i设立服务区并为j小区服务 \\\\
+0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
+\end{cases}</script>并假设$S=\\\{(j,k)|(j,k)为对应的小区对\\\}$  <script type="math/tex; mode=display">
+\begin{align}
+min \quad&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\\\
+s.t.\quad&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\\\
+&\sum\limits_{i=1}^mx_{ij}=2\\\\
+&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
+\end{align}</script></li>
 </ol>
 <h2><span id="solution-2">solution 2</span></h2><ol>
 <li>现假设前 $i$ 个公司已经投标完毕，现在轮到第 $i+1$ 个公司<ol>
@@ -157,21 +175,30 @@
 </ol>
 </li>
 </ol>
+<div class="table-container">
 <table>
 <thead>
 <tr>
-<th align="center">$X$</th>
-<th align="center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
-<th align="center">$A_i$</th>
+<th style="text-align:center">$X$</th>
+<th style="text-align:center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
+<th style="text-align:center">$A_i$</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">$P$</td>
-<td align="center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
-<td align="center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
+<tbody>
+<tr>
+<td style="text-align:center">$P$</td>
+<td style="text-align:center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
+<td style="text-align:center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
 </tr>
-</tbody></table>
-<p>于是我们有<br>$$<br>\begin{align}<br>A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\<br>&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}<br>\end{align}<br>$$<br>其中 $A_1=p_0$<br>2.</p>
+</tbody>
+</table>
+</div>
+<p>于是我们有</p>
+<script type="math/tex; mode=display">
+\begin{align}
+A_{i+1}&=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\\\
+&= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}
+\end{align}</script><p>其中 $A_1=p_0$<br>2.</p>
 ]]></content>
       <categories>
         <category>回忆卷</category>
@@ -182,19 +209,42 @@
       </tags>
   </entry>
   <entry>
-    <title>概率论</title>
-    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
-</blockquote>
+    <title>26周</title>
+    <url>/2024/06/25/todolists/26%E5%91%A8/</url>
+    <content><![CDATA[<h1><span id="624">6.24</span></h1><ul>
+<li>[x] 复习数学建模</li>
+</ul>
+<h1><span id="625">6.25</span></h1><ul>
+<li>[x] 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li>
+<li>[x] 完善hexo [completion:: 2024-06-25 12:37]</li>
+</ul>
+<h1><span id="626">6.26</span></h1><ul>
+<li>[ ] 去趟阿姨家 16:00-?</li>
+<li>[x] 历年卷一套</li>
+<li>[ ] 数学建模回忆卷</li>
+<li>[ ] 历年卷知识点总结</li>
+</ul>
 ]]></content>
       <categories>
-        <category>学习</category>
-        <category>概率论</category>
+        <category>todo</category>
+        <category>2024</category>
+        <category>26周</category>
       </categories>
       <tags>
-        <tag>复习</tag>
-        <tag>概率论</tag>
+        <tag>todo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>二重积分</title>
+    <url>/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数学分析</category>
+        <category>二重积分</category>
+      </categories>
+      <tags>
+        <tag>数学分析</tag>
       </tags>
   </entry>
   <entry>
@@ -225,21 +275,24 @@
         <category>数学分析</category>
       </categories>
       <tags>
-        <tag>复习</tag>
         <tag>数学分析</tag>
+        <tag>复习</tag>
       </tags>
   </entry>
   <entry>
-    <title>二重积分</title>
-    <url>/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/</url>
-    <content><![CDATA[]]></content>
+    <title>概率论</title>
+    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
+</blockquote>
+]]></content>
       <categories>
         <category>学习</category>
-        <category>数学分析</category>
-        <category>二重积分</category>
+        <category>概率论</category>
       </categories>
       <tags>
-        <tag>数学分析</tag>
+        <tag>复习</tag>
+        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
