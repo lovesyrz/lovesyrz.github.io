@@ -302,6 +302,7 @@
 <li>若 $n$ 趋向无穷大，求投标 $A$ 技术的公司的占比</li>
 </ol>
 <span id="more"></span>
+
 <p>三、一个物体以初速度 $v$ 从水平面上抛出，初速度与水平面的夹角为 $\theta$ 。记这个物体从抛出到落回水平面时所经过的曲线的长度为 $L(v,\theta)$ </p>
 <ol>
 <li>求 $L(v,\theta)$ 的具体公式，可以带积分or微分</li>
@@ -310,34 +311,14 @@
 </ol>
 <p>四、现有三个容量为 $n$ 的容器，里面都装有水，水的总量为 $n$ 。现规定两个容器的一个合理倾倒操作为，从盛水量较多的容器向盛水量较少的容器中倾倒等同与盛水量较少的容器的盛水量。即若两个容器的盛水量分别为$x,y$ ，$x\le y$ ，则合理倾倒后两个容器的盛水量变为 $2x,y-x$<br>现在，我们有三个容器 $A,B,C$ ，它们初始的盛水量为 $a,b,c$ 。其中 $a\le b\le c$ ， $a,b,c$ 均为正整数。</p>
 <ol>
-<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min\{b-pa,qa-b\}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
+<li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min{b-pa,qa-b}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li>
 <li>假设 $b-pa\le\frac{a}{2}$ 。请证明：存在一种方法，使得能够在不超过 $k+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 <li>利用2与4，证明：存在一种方法，能够在不超过 $(log_2~n)^2$ 次合理倾倒下，将一个容器清空</li>
 <li>（附加）假设 $qa-b\le\frac{a}{2}$ 。请证明：存在一种方法，使得在不超过 $\lfloor log_2~q\rfloor+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 </ol>
 <h1><span id="解答">解答</span></h1><h2><span id="solution-1">solution 1</span></h2><ol>
-<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
-x_{ij}=
-\begin{cases}
-1,在地点i设立服务区并为j小区服务 \\\\ 
-0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
-\end{cases}</script>并假设$S=\\\{(j,k)|(j,k)为对应的小区对\\\}$  <script type="math/tex; mode=display">
-\begin{align}
-min\quad&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\\\
-s.t.\quad&x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\\\
-&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
-\end{align}</script></li>
-<li>我们以如下变量做决策变量：<script type="math/tex; mode=display">
-x_{ij}=\begin{cases}
-1,在地点i设立服务区并为j小区服务 \\\\
-0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务
-\end{cases}</script>并假设$S=\\\{(j,k)|(j,k)为对应的小区对\\\}$  <script type="math/tex; mode=display">
-\begin{align}
-min \quad&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\\\
-s.t.\quad&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\\\
-&\sum\limits_{i=1}^mx_{ij}=2\\\\
-&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n
-\end{align}</script></li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=<br>\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \\<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$<br>$$<br>\begin{align}<br>min\quad&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\<br>s.t.\quad&amp;x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align}<br>$$</li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \\<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$<br>$$<br>\begin{align}<br>min \quad&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\<br>s.t.\quad&amp;\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\<br>&amp;\sum\limits_{i=1}^mx_{ij}=2\\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align}<br>$$</li>
 </ol>
 <h2><span id="solution-2">solution 2</span></h2><ol>
 <li>现假设前 $i$ 个公司已经投标完毕，现在轮到第 $i+1$ 个公司<ol>
@@ -355,30 +336,21 @@ s.t.\quad&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\\\
 </ol>
 </li>
 </ol>
-<div class="table-container">
 <table>
 <thead>
 <tr>
-<th style="text-align:center">$X$</th>
-<th style="text-align:center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
-<th style="text-align:center">$A_i$</th>
+<th align="center">$X$</th>
+<th align="center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th>
+<th align="center">$A_i$</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td style="text-align:center">$P$</td>
-<td style="text-align:center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
-<td style="text-align:center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
+<tbody><tr>
+<td align="center">$P$</td>
+<td align="center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
+<td align="center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
 </tr>
-</tbody>
-</table>
-</div>
-<p>于是我们有</p>
-<script type="math/tex; mode=display">
-\begin{align}
-A_{i+1}&=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\\\
-&= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}
-\end{align}</script><p>其中 $A_1=p_0$<br>2.</p>
+</tbody></table>
+<p>于是我们有<br>$$<br>\begin{align}<br>A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\<br>&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}<br>\end{align}<br>$$<br>其中 $A_1=p_0$<br>2.</p>
 
     </div>
 
