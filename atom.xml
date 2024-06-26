@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Hexo</title>
+  
+  
+  <link href="http://lovesyrz.gihub.io/atom.xml" rel="self"/>
+  
+  <link href="http://lovesyrz.gihub.io/"/>
+  <updated>2024-06-26T00:39:00.058Z</updated>
+  <id>http://lovesyrz.gihub.io/</id>
+  
+  <author>
+    <name>John Doe</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数学建模回忆卷</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/25/%E9%9A%8F%E4%BE%BF%E5%86%99%E7%82%B9/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%9B%9E%E5%BF%86%E5%8D%B7/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/25/%E9%9A%8F%E4%BE%BF%E5%86%99%E7%82%B9/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1%E5%9B%9E%E5%BF%86%E5%8D%B7/</id>
+    <published>2024-06-25T10:26:42.066Z</published>
+    <updated>2024-06-26T00:39:00.058Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="题目">题目</span></h1><p>一、现有共 $m$ 个地点可设服务区，$n$ 个小区需要被服务。在 $i$ 地设立服务区需要花费 $f_i$ ，其中$i$ 地的服务区为 $j$ 校区服务需要维护费为 $c_{ij}$ ，现需要寻找一种方法，使得所有花费最小，并需满足以下条件</p><ol><li>存在部分小区对，没有服务区同时对这两个小区服务</li><li>每个小区正好被两个服务区服务，存在部分小区对，有公共服务区为其服务</li></ol><p>二、现有 $n$ 家公司进行技术投标，每家公司会从剩下 $n-1$ 家公司中随机选择一家进行跟随。所有公司按照某一确定的顺序进行投标选择，其中，以 $p_0$ 的概率选择 $A$ 技术，以 $p_1$ 的概率选择 $B$ 技术，剩下 $1-p_0-p_1$ 的概率进行跟随，跟随情况下，若跟随的公司选择 $A$ 技术，则该公司也选择 $A$ 技术，若跟随的公司未选择或选择 $B$ 技术，则该公司也选择 $B$ 技术。<br>现用 $A_i$ 表示有 $i$ 家公司进行投标后，投标 $A$ 技术的公司数量的数学期望</p><ol><li>请给出 $A_i$ 的递推公式</li><li>若 $n$ 趋向无穷大，求投标 $A$ 技术的公司的占比</li></ol><p>三、一个物体以初速度 $v$ 从水平面上抛出，初速度与水平面的夹角为 $\theta$ 。记这个物体从抛出到落回水平面时所经过的曲线的长度为 $L(v,\theta)$ </p><ol><li>求 $L(v,\theta)$ 的具体公式，可以带积分or微分</li><li>证明：$L(v,\frac{\pi}{4})&gt;L(v,\frac{\pi}{2})$ </li><li>（附加）求 $\hat{\theta}=arg \underset{\theta}{min}L(v,\theta)$ </li></ol><p>四、现有三个容量为 $n$ 的容器，里面都装有水，水的总量为 $n$ 。现规定两个容器的一个合理倾倒操作为，从盛水量较多的容器向盛水量较少的容器中倾倒等同与盛水量较少的容器的盛水量。即若两个容器的盛水量分别为$x,y$ ，$x\le y$ ，则合理倾倒后两个容器的盛水量变为 $2x,y-x$<br>现在，我们有三个容器 $A,B,C$ ，它们初始的盛水量为 $a,b,c$ 。其中 $a\le b\le c$ ， $a,b,c$ 均为正整数。</p><ol><li>令 $p=\lfloor\frac{b}{a}\rfloor$ ，$q=\lceil\frac{b}{a}\rceil$ ，$k=\lfloor log_2~p\rfloor$ 。请证明：$min\{b-pa,qa-b\}\le\frac{a}{2}$ ，以及 $c\ge 2^ka$ </li><li>假设 $b-pa\le\frac{a}{2}$ 。请证明：存在一种方法，使得能够在不超过 $k+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li><li>利用2与4，证明：存在一种方法，能够在不超过 $(log_2~n)^2$ 次合理倾倒下，将一个容器清空</li><li>（附加）假设 $qa-b\le\frac{a}{2}$ 。请证明：存在一种方法，使得在不超过 $\lfloor log_2~q\rfloor+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li></ol><h1><span id="解答">解答</span></h1><h2><span id="solution-1">solution 1</span></h2><ol><li>我们以如下变量做决策变量：<script type="math/tex; mode=display">x_{ij}=\begin{cases}1,在地点i设立服务区并为j小区服务 \\0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务\end{cases}</script>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$  <script type="math/tex; mode=display">\begin{align*}min~~~~&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\s.t.~~~~&x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n\end{align*}</script></li><li>我们以如下变量做决策变量：<script type="math/tex; mode=display">x_{ij}=\begin{cases}1,在地点i设立服务区并为j小区服务 \\0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务\end{cases}</script>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$  <script type="math/tex; mode=display">\begin{align*}min~~~~&\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\s.t.~~~~&\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\&\sum\limits_{i=1}^mx_{ij}=2\\&x_{ij}\in\{1,0\},i=1,2,\cdots,m,j=1,2,\cdots,n\end{align*}</script></li></ol><h2><span id="solution-2">solution 2</span></h2><ol><li>现假设前 $i$ 个公司已经投标完毕，现在轮到第 $i+1$ 个公司<ol><li>该公司投标 $A$ 技术，此概率 $P_1=p_0$ </li><li>该公司投标 $B$ 技术，此概率 $P_2=p_1$ </li><li>该公司选择跟随公司 $K$ ，此概率为 $P_3=1-p_0-p_1$ <ol><li>公司 $K$ 已经进行选择，此概率为 $P_4=\frac{i}{n-1}$ <ol><li>若公司 $K$ 选择了 $A$ ，这个概率为 $P_{41}=\frac{A_i}{i}$ </li><li>若公司 $K$ 选择了 $B$ ，这个概率为 $P_{42}=\frac{i-A_i}{i}$ </li></ol></li><li>公司 $K$ 还未进行选择，此概率为 $P_5=\frac{n-1-i}{n-1}$<br>故我们可以得到以下结果</li></ol></li></ol></li></ol><div class="table-container"><table><thead><tr><th style="text-align:center">$X$</th><th style="text-align:center">$A_i+1$（即第$i+1$ 公司选择 $A$ )</th><th style="text-align:center">$A_i$</th></tr></thead><tbody><tr><td style="text-align:center">$P$</td><td style="text-align:center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td><td style="text-align:center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td></tr></tbody></table></div><script type="math/tex; mode=display">\begin{align*}A_{i+1}&=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\&= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align*}$</script><p>其中 $A_1=p_0$<br>2.</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;题目&quot;&gt;题目&lt;/span&gt;&lt;/h1&gt;&lt;p&gt;一、现有共 $m$ 个地点可设服务区，$n$ 个小区需要被服务。在 $i$ 地设立服务区需要花费 $f_i$ ，其中$i$ 地的服务区为 $j$ 校区服务需要维护费为 $c_{ij}$ ，现需要寻找一种方法，使</summary>
+      
+    
+    
+    
+    <category term="回忆卷" scheme="http://lovesyrz.gihub.io/categories/%E5%9B%9E%E5%BF%86%E5%8D%B7/"/>
+    
+    <category term="数学建模" scheme="http://lovesyrz.gihub.io/categories/%E5%9B%9E%E5%BF%86%E5%8D%B7/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    
+    <category term="回忆卷" scheme="http://lovesyrz.gihub.io/tags/%E5%9B%9E%E5%BF%86%E5%8D%B7/"/>
+    
+    <category term="数学建模" scheme="http://lovesyrz.gihub.io/tags/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二重积分</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/</id>
+    <published>2024-06-25T04:30:03.650Z</published>
+    <updated>2024-06-25T04:31:13.458Z</updated>
+    
+    
+    
+    
+    <category term="学习" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="数学分析" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    
+    <category term="二重积分" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>常微分方程</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</id>
+    <published>2024-06-25T04:19:36.906Z</published>
+    <updated>2024-06-25T04:25:48.361Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文将整理遇到的所有<strong>常微分方程</strong>知识点——做题&amp;复习。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将整理遇到的所有&lt;strong&gt;常微分方程&lt;/strong&gt;知识点——做题&amp;amp;复习。&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="常微分方程" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>概率论</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</id>
+    <published>2024-06-25T04:19:07.828Z</published>
+    <updated>2024-06-25T04:24:18.571Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将整理遇到的所有&lt;strong&gt;概率论&lt;/strong&gt;知识点——做题&amp;amp;复习。&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="概率论" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>高等代数</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/</id>
+    <published>2024-06-25T04:06:57.177Z</published>
+    <updated>2024-06-25T04:24:23.463Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文将整理遇到的所有<strong>高等代数</strong>知识点——做题&amp;复习。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将整理遇到的所有&lt;strong&gt;高等代数&lt;/strong&gt;知识点——做题&amp;amp;复习。&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="高等代数" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>26</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/25/todolists/26/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/25/todolists/26/</id>
+    <published>2024-06-25T02:57:58.106Z</published>
+    <updated>2024-06-26T00:39:23.393Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="624">6.24</span></h1><ul><li>[x] 复习数学建模</li></ul><h1><span id="625">6.25</span></h1><ul><li>[x] 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li><li>[x] 完善hexo [completion:: 2024-06-25 12:37]</li></ul><h1><span id="626">6.26</span></h1><ul><li>[ ] 去趟阿姨家 16:00-?</li><li>[ ] 历年卷一套</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;624&quot;&gt;6.24&lt;/span&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;[x] 复习数学建模&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;&lt;span id=&quot;625&quot;&gt;6.25&lt;/span&gt;&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;[x] 数学建模考试14:00-16:00 [complet</summary>
+      
+    
+    
+    
+    <category term="todo" scheme="http://lovesyrz.gihub.io/categories/todo/"/>
+    
+    <category term="26周" scheme="http://lovesyrz.gihub.io/categories/todo/26%E5%91%A8/"/>
+    
+    
+    <category term="todo" scheme="http://lovesyrz.gihub.io/tags/todo/"/>
+    
+    <category term="26周" scheme="http://lovesyrz.gihub.io/tags/26%E5%91%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>详情见todo-lists</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/25/tasks/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/25/tasks/</id>
+    <published>2024-06-25T02:45:09.523Z</published>
+    <updated>2024-06-25T03:01:18.929Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">TASK</span><br><span class="line">from &quot;_posts/todolists&quot;</span><br><span class="line">where !completed</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span c</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>数学分析</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/24/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/24/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/</id>
+    <published>2024-06-24T12:43:01.619Z</published>
+    <updated>2024-06-25T04:25:54.276Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>本文将整理遇到的所有<strong>数学分析</strong>知识点——做题&amp;复习。</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;本文将整理遇到的所有&lt;strong&gt;数学分析&lt;/strong&gt;知识点——做题&amp;amp;复习。&lt;/p&gt;
+&lt;/blockquote&gt;
+</summary>
+      
+    
+    
+    
+    <category term="学习" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/"/>
+    
+    <category term="数学分析" scheme="http://lovesyrz.gihub.io/categories/%E5%AD%A6%E4%B9%A0/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>日程表（暂定）</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/24/plan/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/24/plan/%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</id>
+    <published>2024-06-24T12:23:48.945Z</published>
+    <updated>2024-06-25T04:25:25.844Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li>7：00 起床</li><li>7：30-8：00 跑步</li><li>8：00-8：20 吃饭</li><li>8：20-8：50 背单词</li><li>8：50-9：10 洗澡</li><li>9：10-11：40 做套卷子（图书馆）</li><li>11：40-12：40 吃个饭+晾衣服</li><li>12：40-13：40 睡个觉</li><li>13：40-17：40 纠错、复习</li><li>17：40-18：40 吃饭</li><li>18：40-21：40 学习</li><li>22：00-23：30 快乐玩耍</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;7：00 起床&lt;/li&gt;
+&lt;li&gt;7：30-8：00 跑步&lt;/li&gt;
+&lt;li&gt;8：00-8：20 吃饭&lt;/li&gt;
+&lt;li&gt;8：20-8：50 背单词&lt;/li&gt;
+&lt;li&gt;8：50-9：10 洗澡&lt;/li&gt;
+&lt;li&gt;9：10-11：40 做套卷子（图书馆）&lt;/li&gt;</summary>
+      
+    
+    
+    
+    <category term="目标" scheme="http://lovesyrz.gihub.io/categories/%E7%9B%AE%E6%A0%87/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>planning</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/24/plan/planning/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/24/plan/planning/</id>
+    <published>2024-06-24T12:23:19.092Z</published>
+    <updated>2024-06-25T04:25:45.031Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="任务安排">任务安排</span></h1><ol><li>刷刷题儿</li><li>背背单词</li><li>读读书</li><li>养几个好习惯<ol><li>早起</li><li>运动</li><li>阅读</li><li>每日总结</li></ol></li></ol><h1><span id="具体实现">具体实现</span></h1><ol><li>如何自律<ol><li>手机：用<strong>番茄todo</strong>记录学习时间（至少不玩手机）</li><li>平板：展示屏幕使用情况</li><li>电脑：用<strong>Cold Turkey Blocker</strong>强制无法使用应用&amp;浏览网站</li></ol></li><li>成果展示<ol><li>每天中午打卡所做的卷子</li><li>下午打卡知识点整理以及错题纠正</li><li>晚上打卡每日学习时间&amp;设备使用情况</li></ol></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;任务安排&quot;&gt;任务安排&lt;/span&gt;&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;刷刷题儿&lt;/li&gt;
+&lt;li&gt;背背单词&lt;/li&gt;
+&lt;li&gt;读读书&lt;/li&gt;
+&lt;li&gt;养几个好习惯&lt;ol&gt;
+&lt;li&gt;早起&lt;/li&gt;
+&lt;li&gt;运动&lt;/li&gt;
+&lt;li&gt;阅读&lt;/li&gt;
+&lt;li&gt;每日总</summary>
+      
+    
+    
+    
+    <category term="目标" scheme="http://lovesyrz.gihub.io/categories/%E7%9B%AE%E6%A0%87/"/>
+    
+    
+  </entry>
+  
+</feed>
