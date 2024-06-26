@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>详情见todo-lists</title>
+    <url>/2024/06/25/tasks/</url>
+    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TASK</span><br><span class="line">from &quot;_posts/todolists&quot;</span><br><span class="line">where !completed</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>2024暑期日程表（暂定）</title>
     <url>/2024/06/24/plan/2024%E6%9A%91%E6%9C%9F%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</url>
     <content><![CDATA[<ul>
@@ -25,12 +31,6 @@
       <tags>
         <tag>作息表</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>详情见todo-lists</title>
-    <url>/2024/06/25/tasks/</url>
-    <content><![CDATA[<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">TASK</span><br><span class="line">from &quot;_posts/todolists&quot;</span><br><span class="line">where !completed</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>
-]]></content>
   </entry>
   <entry>
     <title>2024暑期planning</title>
@@ -68,6 +68,19 @@
       </categories>
       <tags>
         <tag>目标</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>声明（关于数学公式无法正常显示的bug）（已解决）</title>
+    <url>/2024/06/26/%E5%A3%B0%E6%98%8E/%E5%A3%B0%E6%98%8E/</url>
+    <content><![CDATA[<p><del>目前遇到行间公式无法正常显示的bug，正在尽力研究，如有相应的解决方案，请联系:</del> 2139475218@qq.com</p>
+<p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
+]]></content>
+      <categories>
+        <category>声明</category>
+      </categories>
+      <tags>
+        <tag>声明</tag>
       </tags>
   </entry>
   <entry>
@@ -125,8 +138,8 @@
 <li>（附加）假设 $qa-b\le\frac{a}{2}$ 。请证明：存在一种方法，使得在不超过 $\lfloor log_2~q\rfloor+1$ 次合理倾倒下，使得至少有一个容器的盛水量不超过 $\frac{a}{2}$ </li>
 </ol>
 <h1><span id="解答">解答</span></h1><h2><span id="solution-1">solution 1</span></h2><ol>
-<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S={(j,k)|(j,k)为对应的小区对}$<br>$$<br>\begin{align<em>}<br>min<del>&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\<br>s.t.</del>&amp;x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align</em>}<br>$$</li>
-<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S={(j,k)|(j,k)为对应的小区对}$<br>$$<br>\begin{align<em>}<br>min<del>&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\<br>s.t.</del>&amp;\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\<br>&amp;\sum\limits_{i=1}^mx_{ij}=2\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align</em>}<br>$$</li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=<br>\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \\<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$<br>$$<br>\begin{align}<br>min&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\<br>s.t.&amp;x_{ij}+x_{ik}\le1,(j,k)\in S,i=1,2,\cdots,m\\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align}<br>$$</li>
+<li>我们以如下变量做决策变量：<br>$$<br>x_{ij}=\begin{cases}<br>1,在地点i设立服务区并为j小区服务 \\<br>0，在地点i不设立服务区或在地点i设立服务区但不为j小区服务<br>\end{cases}<br>$$<br>并假设$S=\{(j,k)|(j,k)为对应的小区对\}$<br>$$<br>\begin{align}<br>min&amp;\sum\limits_{i=1}^m\sum\limits_{j=1}^nc_{ij}x_{ij}+\sum\limits_{i=1}^m(1-\prod\limits_{j=1}^n(1-x_{ij}^2))f_i\\<br>s.t.&amp;\prod\limits_{i=1}^m(x_{ij}+x_{ik}-2)=0,(j,k)\in S\\<br>&amp;\sum\limits_{i=1}^mx_{ij}=2\\<br>&amp;x_{ij}\in{1,0},i=1,2,\cdots,m,j=1,2,\cdots,n<br>\end{align}<br>$$</li>
 </ol>
 <h2><span id="solution-2">solution 2</span></h2><ol>
 <li>现假设前 $i$ 个公司已经投标完毕，现在轮到第 $i+1$ 个公司<ol>
@@ -157,32 +170,8 @@
 <td align="center">$p_0+(1-p_0-p_1)\frac{i}{n-1}\frac{A_i}{i}$</td>
 <td align="center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
 </tr>
-<tr>
-<td align="center">$$</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">\begin{align<em>}A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}\end{align</em>}</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">$$$</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">其中 $A_1=p_0$</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">2.</td>
-<td align="center"></td>
-<td align="center"></td>
-</tr>
 </tbody></table>
+<p>于是我们有<br>$$<br>\begin{align}<br>A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\<br>&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}<br>\end{align}<br>$$<br>其中 $A_1=p_0$<br>2.</p>
 ]]></content>
       <categories>
         <category>回忆卷</category>
@@ -190,6 +179,22 @@
       </categories>
       <tags>
         <tag>回忆卷</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>概率论</title>
+    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>概率论</category>
+      </categories>
+      <tags>
+        <tag>复习</tag>
+        <tag>概率论</tag>
       </tags>
   </entry>
   <entry>
@@ -204,7 +209,7 @@
         <category>常微分方程</category>
       </categories>
       <tags>
-        <tag>复习科目</tag>
+        <tag>复习</tag>
         <tag>常微分方程</tag>
       </tags>
   </entry>
@@ -220,7 +225,7 @@
         <category>数学分析</category>
       </categories>
       <tags>
-        <tag>复习科目</tag>
+        <tag>复习</tag>
         <tag>数学分析</tag>
       </tags>
   </entry>
@@ -238,22 +243,6 @@
       </tags>
   </entry>
   <entry>
-    <title>概率论</title>
-    <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>概率论</category>
-      </categories>
-      <tags>
-        <tag>复习科目</tag>
-        <tag>概率论</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高等代数</title>
     <url>/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/</url>
     <content><![CDATA[<blockquote>
@@ -265,7 +254,7 @@
         <category>高等代数</category>
       </categories>
       <tags>
-        <tag>复习科目</tag>
+        <tag>复习</tag>
         <tag>高等代数</tag>
       </tags>
   </entry>
