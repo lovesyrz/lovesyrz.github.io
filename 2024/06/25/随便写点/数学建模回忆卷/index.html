@@ -29,7 +29,7 @@
 <meta property="og:description" content="题目一、现有共 $m$ 个地点可设服务区，$n$ 个小区需要被服务。在 $i$ 地设立服务区需要花费 $f_i$ ，其中$i$ 地的服务区为 $j$ 校区服务需要维护费为 $c_{ij}$ ，现需要寻找一种方法，使得所有花费最小，并需满足以下条件  存在部分小区对，没有服务区同时对这两个小区服务 每个小区正好被两个服务区服务，存在部分小区对，有公共服务区为其服务  二、现有 $n$ 家公司进行技术">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-25T10:26:42.066Z">
-<meta property="article:modified_time" content="2024-06-26T06:56:12.581Z">
+<meta property="article:modified_time" content="2024-06-26T07:25:45.505Z">
 <meta property="article:author" content="Kangjie Lou">
 <meta property="article:tag" content="回忆卷">
 <meta name="twitter:card" content="summary">
@@ -244,7 +244,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-26 14:56:12" itemprop="dateModified" datetime="2024-06-26T14:56:12+08:00">2024-06-26</time>
+      <time title="Modified: 2024-06-26 15:25:45" itemprop="dateModified" datetime="2024-06-26T15:25:45+08:00">2024-06-26</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -274,14 +274,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>2.6k</span>
+      <span>3.6k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>2 mins.</span>
+      <span>3 mins.</span>
     </span>
 </div>
 
@@ -350,7 +350,10 @@
 <td align="center">$p_1+(1-p_0-p_1)(\frac{i}{n-1}\frac{i-A_i}{i}+\frac{n-1-i}{n-1})$</td>
 </tr>
 </tbody></table>
-<p>于是我们有<br>$$<br>\begin{align}<br>A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\<br>&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}<br>\end{align}<br>$$<br>其中 $A_1=p_0$<br>2.</p>
+<p>于是我们有<br>$$<br>\begin{align}<br>A_{i+1}&amp;=(A_i+1)(p_0+(1-p_0-p_1)\frac{A_i}{n-1})+A_i(p_1+(1-p_0-p_1)\frac{n-1-A_i}{n-1})\\<br>&amp;= A_i+p_0+(1-p_0-p_1)\frac{A_i}{n-1}<br>\end{align}<br>$$<br>其中 $A_1=p_0$ </p>
+<ol start="2">
+<li>我们最后要求的是$\lim\limits_{n\rightarrow\infty}\frac{A_n}{n}$ ，在本题中，我们可以将 $A_n$ 求解出来<br>这是一个数列，显然可以求得不动点 $x=-\frac{p_0(n-1)}{1-p_0-p_1}$<br>故有 $A_{i+1}+\frac{p_0(n-1)}{1-p_0-p_1}=(1+\frac{1-p_0-p_1}{n-1})(A_i+\frac{p_0(n-1)}{1-p_0-p_1})$<br>从而 $A_i+\frac{p_0(n-1)}{1-p_0-p_1}$ 为等比数列，公比为 $q=\frac{n-p_0-p_1}{n-1}$<br>从而不难求得<br>$$<br>\begin{align}<br>A_n+\frac{p_0(n-1)}{1-p_0-p_1} &amp;= q^n-1(A_1+\frac{p_0(n-1)}{1-p_0-p_1})\\<br>&amp;=(\frac{n-p_0-p_1}{n-1})^{n-1}\cdot p_0 \cdot(1+\frac{n-1}{1-p_0-p_1})\\<br>&amp;=\frac{p_0(n-1)}{1-p_0-p_1}(\frac{n-p_0-p_1}{n-1})^n<br>\end{align}<br>$$<br>由此，我们解得 $A_n=\frac{p_0(n-1)}{1-p_0-p_1}(\frac{n-p_0-p_1}{n-1})^n-\frac{p_0(n-1)}{1-p_0-p_1}=\frac{p_0(n-1)}{1-p_0-p_1}[(\frac{n-p_0-p_1}{n-1})^n-1]$<br>接下来求极限<br>$$<br>\begin{align}<br>\lim\limits_{n\rightarrow\infty}\frac{A_n}{n} &amp;= \lim\limits_{n\rightarrow\infty}\frac{p_0}{1-p_0-p_1}\frac{n-1}{n}[(1+\frac{1-p_0-p_1}{n-1})^{\frac{n-1}{1-p_0-p_1}\frac{1-p_0-p_1}{n-1}n}-1]\\<br>&amp;=\frac{p_0}{1-p_0-p_1}[e^{1-p_0-p_1}-1]<br>\end{align}<br>$$</li>
+</ol>
 
     </div>
 
@@ -420,14 +423,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">5k</span>
+    <span title="Word count total">6k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">5 mins.</span>
+    <span title="Reading time total">6 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
