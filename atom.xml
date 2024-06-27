@@ -6,7 +6,7 @@
   <link href="http://lovesyrz.gihub.io/atom.xml" rel="self"/>
   
   <link href="http://lovesyrz.gihub.io/"/>
-  <updated>2024-06-26T07:05:25.844Z</updated>
+  <updated>2024-06-27T02:30:20.380Z</updated>
   <id>http://lovesyrz.gihub.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>历年卷问题汇总</title>
+    <link href="http://lovesyrz.gihub.io/2024/06/27/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://lovesyrz.gihub.io/2024/06/27/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</id>
+    <published>2024-06-27T02:26:43.650Z</published>
+    <updated>2024-06-27T02:30:20.380Z</updated>
+    
+    <content type="html"><![CDATA[<h1><span id="汇总">汇总</span></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">task</span><br><span class="line">from &quot;_posts/历年卷&quot;</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure><h1><span id="待复习">待复习</span></h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">task</span><br><span class="line">from &quot;_posts/历年卷&quot;</span><br><span class="line">where !completed</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;&lt;span id=&quot;汇总&quot;&gt;汇总&lt;/span&gt;&lt;/h1&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span </summary>
+      
+    
+    
+    
+    
+    <category term="历年卷" scheme="http://lovesyrz.gihub.io/tags/%E5%8E%86%E5%B9%B4%E5%8D%B7/"/>
+    
+    <category term="问题汇总" scheme="http://lovesyrz.gihub.io/tags/%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    
+  </entry>
   
   <entry>
     <title>数学公式显示问题</title>
@@ -70,8 +94,18 @@
     <link href="http://lovesyrz.gihub.io/2024/06/26/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E6%95%B0%E4%B8%89/2020/"/>
     <id>http://lovesyrz.gihub.io/2024/06/26/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E6%95%B0%E4%B8%89/2020/</id>
     <published>2024-06-26T03:11:46.874Z</published>
-    <updated>2024-06-26T03:19:25.335Z</updated>
+    <updated>2024-06-27T02:26:30.922Z</updated>
     
+    <content type="html"><![CDATA[<ul><li><input disabled type="checkbox"> 间断点的类别</li><li><input disabled type="checkbox"> 不同函数收敛半径的关系</li><li><input disabled type="checkbox"> 二元正态分布的相关系数</li><li><input disabled type="checkbox"> 极值点的判定</li><li><input disabled type="checkbox"> 二阶线性常微分方程</li><li><input disabled type="checkbox"> 似然函数</li><li><input disabled type="checkbox"> 矩阵……</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;input disabled type=&quot;checkbox&quot;&gt; 间断点的类别&lt;/li&gt;
+&lt;li&gt;&lt;input disabled type=&quot;checkbox&quot;&gt; 不同函数收敛半径的关系&lt;/li&gt;
+&lt;li&gt;&lt;input disabled type=&quot;checkb</summary>
+      
     
     
     
