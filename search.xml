@@ -7,39 +7,34 @@
 ]]></content>
   </entry>
   <entry>
-    <title>数学公式显示问题</title>
-    <url>/2024/06/26/Hexo/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
-    <content><![CDATA[<ul>
-<li>如果你已经按照其它教程更换了渲染引擎，请直接转至<a href="#问题与解决方案">问题与解决方案</a>版块（里面可能会有你需要的答案，仅以我自己遇到的问题为参考）</li>
+    <title>26周</title>
+    <url>/2024/06/25/todolists/26%E5%91%A8/</url>
+    <content><![CDATA[<h1><span id="624">6.24</span></h1><ul>
+<li><input checked disabled type="checkbox"> 复习数学建模</li>
 </ul>
-<p>我们用hexo+github/gitee搭建个人博客，会发现无法显示markdown文件里的latex公式，这是因为hexo默认支持的hexo-renderer-marked渲染器不支持latex公式。那我们应该怎样做才能支持显示latex公式呢？以next主题为例，目前Next支持两种数学公式渲染引擎，分别为Mathjax和Katex。由于Mathjax支持的更为全面，因此我们选择Mathjax。</p>
-<span id="more"></span>
-<h1><span id="更换渲染引擎">更换渲染引擎</span></h1><p>在blog根目录下执行</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
-<p>我自己目前所用的就是这个，不过也有人用pandoc的，具体可以参考 <a href="https://blog.csdn.net/gorray/article/details/122398901">https://blog.csdn.net/gorray/article/details/122398901</a></p>
-<p>接下来打开<code>blog\node_modules\kramed\lib\rules\inline.js</code><br>将下面两行进行替换（可以在已有的行前加上//），这是解决语义冲突的问题</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line">  <span class="attr">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br><span class="line"><span class="comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line">  <span class="attr">em</span>: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
-
-<p>最后，在<code>next\_config.yml</code>文件中查找mathjax并将enable项改为true</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mathjax数学公式</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># Katex数学公式(allpost设置为false时只有头部设置math:true的文章才开启)</span></span><br><span class="line"><span class="attr">katex:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">allpost:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">copy_tex:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-<p>至此，我们的文件已经修改好了，如果你需要让你的文件可以编译公式，那你还需要在文件开头加上<code>mathjax: true</code>，如下（别忘了冒号后要加空格）</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-<p>如果你不想这么麻烦，也可以在主题的<code>next\_config.yml</code>找到<code>every_page</code>，将其值设为true，具体效果如下</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line"></span><br><span class="line">  # Default (false) will load mathjax / katex script on demand.</span><br><span class="line"></span><br><span class="line">  # That is it only render those page which has `mathjax: true` in front-matter.</span><br><span class="line"></span><br><span class="line">  # If you set it to true, it will load mathjax / katex script EVERY PAGE.</span><br><span class="line"></span><br><span class="line">  every_page: true</span><br></pre></td></tr></table></figure>
-<p>不过听别人说好像还会有问题，如果出现问题的话还是乖乖的每篇文章加上<code>mathjax: true</code> 叭</p>
-<h1><span id="问题与解决方案">问题与解决方案</span></h1><h2><span id="问题">问题</span></h2><p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
-<h2><span id="解决方案">解决方案</span></h2><ol>
-<li>换行符换为<code>\\\\</code>四个，这样转为html后仍会保留两个，可以正常编译</li>
-<li>不建议使用 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>，直接去掉*，目前测试下来甚至不会出现编号（不知道哪天如果需要编号该怎么办）</li>
-<li>公式内空格<code>\quad</code></li>
-<li>花括号，我们之前使用的是<code>\&#123;\&#125;</code>，按道理来说我们应该改成<code>\\&#123;\\&#125;</code>，但是这样的话我们自己的markdown就没法显示花括号了，但是改成三个就可以<code>\\\&#123;\\\&#125;</code>，可能麻烦一点，但是至少能解决这方面的问题了。</li>
-</ol>
+<h1><span id="625">6.25</span></h1><ul>
+<li><input checked disabled type="checkbox"> 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li>
+<li><input checked disabled type="checkbox"> 完善hexo [completion:: 2024-06-25 12:37]</li>
+</ul>
+<h1><span id="626">6.26</span></h1><ul>
+<li><input checked disabled type="checkbox"> 去趟阿姨家 16:00-? [completion:: 2024-06-26 22:38]</li>
+<li><input checked disabled type="checkbox"> 历年卷一套 [completion:: 2024-06-26 23:38]</li>
+<li><input checked disabled type="checkbox"> 数学建模回忆卷 [completion:: 2024-06-26 23:36]</li>
+<li>[-] 历年卷知识点总结</li>
+</ul>
+<h1><span id="627">6.27</span></h1><ul>
+<li><input disabled type="checkbox"> 历年卷</li>
+<li><input disabled type="checkbox"> 历年卷知识点整理</li>
+<li><input disabled type="checkbox"> 数学建模回忆卷全部完成</li>
+</ul>
 ]]></content>
       <categories>
-        <category>Hexo</category>
+        <category>todo</category>
+        <category>2024</category>
+        <category>26周</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
+        <tag>todo</tag>
       </tags>
   </entry>
   <entry>
@@ -107,62 +102,39 @@
       </tags>
   </entry>
   <entry>
-    <title>26周</title>
-    <url>/2024/06/25/todolists/26%E5%91%A8/</url>
-    <content><![CDATA[<h1><span id="624">6.24</span></h1><ul>
-<li><input checked disabled type="checkbox"> 复习数学建模</li>
+    <title>数学公式显示问题</title>
+    <url>/2024/06/26/Hexo/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<ul>
+<li>如果你已经按照其它教程更换了渲染引擎，请直接转至<a href="#问题与解决方案">问题与解决方案</a>版块（里面可能会有你需要的答案，仅以我自己遇到的问题为参考）</li>
 </ul>
-<h1><span id="625">6.25</span></h1><ul>
-<li><input checked disabled type="checkbox"> 数学建模考试14:00-16:00 [completion:: 2024-06-25 18:26]</li>
-<li><input checked disabled type="checkbox"> 完善hexo [completion:: 2024-06-25 12:37]</li>
-</ul>
-<h1><span id="626">6.26</span></h1><ul>
-<li><input checked disabled type="checkbox"> 去趟阿姨家 16:00-? [completion:: 2024-06-26 22:38]</li>
-<li><input checked disabled type="checkbox"> 历年卷一套 [completion:: 2024-06-26 23:38]</li>
-<li><input checked disabled type="checkbox"> 数学建模回忆卷 [completion:: 2024-06-26 23:36]</li>
-<li>[-] 历年卷知识点总结</li>
-</ul>
-<h1><span id="627">6.27</span></h1><ul>
-<li><input disabled type="checkbox"> 历年卷</li>
-<li><input disabled type="checkbox"> 历年卷知识点整理</li>
-</ul>
+<p>我们用hexo+github/gitee搭建个人博客，会发现无法显示markdown文件里的latex公式，这是因为hexo默认支持的hexo-renderer-marked渲染器不支持latex公式。那我们应该怎样做才能支持显示latex公式呢？以next主题为例，目前Next支持两种数学公式渲染引擎，分别为Mathjax和Katex。由于Mathjax支持的更为全面，因此我们选择Mathjax。</p>
+<span id="more"></span>
+<h1><span id="更换渲染引擎">更换渲染引擎</span></h1><p>在blog根目录下执行</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-renderer-marked --save</span><br><span class="line">npm install hexo-renderer-kramed --save</span><br></pre></td></tr></table></figure>
+<p>我自己目前所用的就是这个，不过也有人用pandoc的，具体可以参考 <a href="https://blog.csdn.net/gorray/article/details/122398901">https://blog.csdn.net/gorray/article/details/122398901</a></p>
+<p>接下来打开<code>blog\node_modules\kramed\lib\rules\inline.js</code><br>将下面两行进行替换（可以在已有的行前加上//），这是解决语义冲突的问题</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">//  escape: /^\\([\\`*&#123;&#125;\[\]()#$+\-.!_&gt;])/,</span></span><br><span class="line">  <span class="attr">escape</span>: <span class="regexp">/^\\([`*\[\]()#$+\-.!_&gt;])/</span>,</span><br><span class="line"><span class="comment">//  em: /^\b_((?:__|[\s\S])+?)_\b|^\*((?:\*\*|[\s\S])+?)\*(?!\*)/,</span></span><br><span class="line">  <span class="attr">em</span>: <span class="regexp">/^\*((?:\*\*|[\s\S])+?)\*(?!\*)/</span>,</span><br></pre></td></tr></table></figure>
+
+<p>最后，在<code>next\_config.yml</code>文件中查找mathjax并将enable项改为true</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Mathjax数学公式</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"><span class="comment"># Katex数学公式(allpost设置为false时只有头部设置math:true的文章才开启)</span></span><br><span class="line"><span class="attr">katex:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">allpost:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">copy_tex:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+<p>至此，我们的文件已经修改好了，如果你需要让你的文件可以编译公式，那你还需要在文件开头加上<code>mathjax: true</code>，如下（别忘了冒号后要加空格）</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title:</span><br><span class="line">tags:</span><br><span class="line">categories:</span><br><span class="line">mathjax: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>如果你不想这么麻烦，也可以在主题的<code>next\_config.yml</code>找到<code>every_page</code>，将其值设为true，具体效果如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">math:</span><br><span class="line"></span><br><span class="line">  # Default (false) will load mathjax / katex script on demand.</span><br><span class="line"></span><br><span class="line">  # That is it only render those page which has `mathjax: true` in front-matter.</span><br><span class="line"></span><br><span class="line">  # If you set it to true, it will load mathjax / katex script EVERY PAGE.</span><br><span class="line"></span><br><span class="line">  every_page: true</span><br></pre></td></tr></table></figure>
+<p>不过听别人说好像还会有问题，如果出现问题的话还是乖乖的每篇文章加上<code>mathjax: true</code> 叭</p>
+<h1><span id="问题与解决方案">问题与解决方案</span></h1><h2><span id="问题">问题</span></h2><p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
+<h2><span id="解决方案">解决方案</span></h2><ol>
+<li>换行符换为<code>\\\\</code>四个，这样转为html后仍会保留两个，可以正常编译</li>
+<li>不建议使用 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>，直接去掉*，目前测试下来甚至不会出现编号（不知道哪天如果需要编号该怎么办）</li>
+<li>公式内空格<code>\quad</code></li>
+<li>花括号，我们之前使用的是<code>\&#123;\&#125;</code>，按道理来说我们应该改成<code>\\&#123;\\&#125;</code>，但是这样的话我们自己的markdown就没法显示花括号了，但是改成三个就可以<code>\\\&#123;\\\&#125;</code>，可能麻烦一点，但是至少能解决这方面的问题了。</li>
+</ol>
 ]]></content>
       <categories>
-        <category>todo</category>
-        <category>2024</category>
-        <category>26周</category>
+        <category>Hexo</category>
       </categories>
       <tags>
-        <tag>todo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常微分方程</title>
-    <url>/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将整理遇到的所有<strong>常微分方程</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>常微分方程</category>
-      </categories>
-      <tags>
-        <tag>复习</tag>
-        <tag>常微分方程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>声明（关于数学公式无法正常显示的bug）（已解决）</title>
-    <url>/2024/06/26/%E5%A3%B0%E6%98%8E/%E5%A3%B0%E6%98%8E/</url>
-    <content><![CDATA[<p><del>目前遇到行间公式无法正常显示的bug，正在尽力研究，如有相应的解决方案，请联系:</del> 2139475218@qq.com</p>
-<p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
-]]></content>
-      <categories>
-        <category>声明</category>
-      </categories>
-      <tags>
-        <tag>声明</tag>
+        <tag>Hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -184,7 +156,7 @@
 <ol>
 <li>求 $L(v,\theta)$ 的具体公式，可以带积分or微分</li>
 <li>证明：$L(v,\frac{\pi}{4})&gt;L(v,\frac{\pi}{2})$ </li>
-<li>（附加）求 $\hat{\theta}=arg \underset{\theta}{min}L(v,\theta)$ </li>
+<li>（附加）求 $\hat{\theta}=arg \underset{\theta}{max}L(v,\theta)$ </li>
 </ol>
 <p>四、现有三个容量为 $n$ 的容器，里面都装有水，水的总量为 $n$ 。现规定两个容器的一个合理倾倒操作为，从盛水量较多的容器向盛水量较少的容器中倾倒等同与盛水量较少的容器的盛水量。即若两个容器的盛水量分别为$x,y$ ，$x\le y$ ，则合理倾倒后两个容器的盛水量变为 $2x,y-x$<br>现在，我们有三个容器 $A,B,C$ ，它们初始的盛水量为 $a,b,c$ 。其中 $a\le b\le c$ ， $a,b,c$ 均为正整数。</p>
 <ol>
@@ -244,7 +216,7 @@
 </li>
 <li>由于 $b-pa\le\frac{1}{2}a,k=\lfloor log_2p\rfloor$ ，我们得到 $k\le log_2p&lt;k+1\Rightarrow2^k\le p&lt;2^{k+1}$<br>不妨设 $p=2^k+s,0\le s&lt;2^k$<br>由于 $s&lt;2^k$ ，因此我们可以用二进制表示 $s$ ，并写成幂的和的形式 $s=2^{m_1}+2^{m_2}+\cdots+2^{m_s},k&gt;m_1&gt;m_2&gt;\cdots&gt;m_s&gt;=0$ ，并记 $M=\{m_1,\cdots m_s\}$<br>同时我们得到 $b=pa+\varepsilon a=(2^k+2^{m_1}+2^{m_2}+\cdots+2^{m_s})a+\varepsilon a,\varepsilon\le\frac{1}{2}$<br>现我们考虑如果一直由 $C$ 容器向 $A$ 容器合理倾倒，则共计倾倒 $k-1$ 次后，我们得到：<br>$A$ 容器中盛水量为 $2^{k-1}a$ ，$C$ 容器中盛水量为 $c_1\ge2^ka-2^{k-1}a=2^{k-1}a$ ，故可以由 $C$ 容器向 $A$ 容器完成至少 $k$ 次合理倾倒<br>现考虑以下倒水规则：当 $A$ 容器的盛水量为 $2^ta$ 时，若$t\in M$ 则从 $B$ 容器向 $A$ 容器合理倾倒；反之，则从 $C$ 容器向 $A$ 容器合理倾倒。<br>按上述规则合理倾倒 $k$ 次后， $A$ 容器的盛水量为 $2^ka$ ， $B$ 容器的盛水量为 $2^ka+\varepsilon a$<br>故可由 $B$ 容器向 $A$ 容器合理倾倒。<br>在第 $k+1$ 次合理倾倒完成后， $B$ 容器的盛水量为 $\varepsilon a\le\frac{1}{2}a$ 。证毕。</li>
 <li>先证明4，同2，我们将 $B$ 容器的盛水量进行分解 $b=qa-\delta a,0\le\delta\le\frac{1}{2}$<br>我们记 $l=\lfloor log_2q\rfloor$ ，则 $2^l\le q&lt;2^{l+1}$ ，记 $q=2^l+r,0\le r&lt;2^r$ ，同理，我们将 $r$ 用二进制表示，$r=2^{n_1}+2^{n_2}+\cdots+2^{n_r}$ ，并记 $N=\{n_1,\cdots,n_r\}$<br>现考虑以下倒水规则：当 $A$ 容器的盛水量为 $2^ta$ 时，若$t\in N$ 则从 $B$ 容器向 $A$ 容器合理倾倒；反之，则从 $C$ 容器向 $A$ 容器合理倾倒。<br>按上述规则合理倾倒 $l$ 次后， $A$ 容器的盛水量为 $2^la$ ， $B$ 容器的盛水量为 $2^la-\delta a$ ，此时从 $A$ 容器向 $B$ 容器合理倾倒<br>经过 $l+1=\lfloor log_2q\rfloor+1$ 次合理倾倒后， $A$ 容器的盛水量为 $\delta a\le\frac{1}{2}a$ </li>
-<li>由上述证明，我们可以得到，一次完整流程的倾倒，可以使得原先最小盛水量减半<br>我们现在假设初始最小盛水量为 $a$</li>
+<li>由上述证明，我们可以得到，一次完整流程的倾倒，可以使得原先最小盛水量减半<br>我们现在假设初始最小盛水量为 $a$ ，则盛水量第二的容器的盛水量至多为 $\frac{n-a}{2}$ 。<br>若 $a=2^k$ 则从 $a$ 依次减半到 $1$ 需要 $k$ 次流程，减到0需要 $k+1=log_2a+1$ 次流程<br>若 $a=2^k+s,0&lt;s&lt;2^k$ ，则从 $a$ 依次减半到 $0$ 需要 $k+1$ 次流程，即 $\lfloor log_2a \rfloor+1$ 次流程<br>即不论 $a$ 是多少，我们都需要 $\lfloor log_2a\rfloor+1$ 次流程。<br>根据抽屉原理，我们知道，初始的 $a\le \frac{n}{3}$<br>显然，我们有 $\lfloor log_2a\rfloor+1\le\lfloor log_{2} \frac{n}{3} \rfloor+1\le log_2n-log_23+1&lt;log_2n$ ，故我们可以在 $log_2n$ 次流程内将某个容器的盛水量变为0。<br>至此，我们仅需证明，每次流程的合理倾倒次数不超过 $log_2n$ 即可<br>我们知道，$p=\lfloor\frac{\frac{n}{a}-1}{2}\rfloor,q=\lceil\frac{\frac{n}{a}-1}{2}\rceil$<br>由此，我们得知，每一次流程下的合理倾倒次数为 $\lfloor log_2p\rfloor+1$ 或 $\lfloor log_2q\rfloor+1$<br>则有<br>$$<br>\begin{align}<br>\lfloor log_2p\rfloor+1&amp;\le  log_2p+1\le  log_2\frac{n-a}{2a} +1\\<br>&amp;= log_2(n-a)+1-log_2(2a)\le log_2(n-a)\\<br>&amp;\le log_2n<br>\end{align}<br>$$<br>$$<br>\begin{align}<br>\lfloor log_2q\rfloor+1&amp;\le log_2q+1&lt; log_2(\frac{n-a}{2a}+1)+1\\<br>&amp;= log_2\frac{n+a}{2a}+1<br>\end{align}<br>$$<br>显然，右侧的函数关于 $a$ 是递减的，在 $a\ge2$ 的情况下，我们有 $log_2\frac{n+a}{2a}+1\le log_2\frac{n+2}{4}+1$<br>若有 $log_2\frac{n+2}{4}+1\le log_2n\iff\frac{n+2}{4}\cdot e\le n\iff n\ge\frac{2e}{4-e}&gt;2$<br>当然，我们还需验证 $a=1$ 的情况，在此情况下，我们需要合理倾倒 $\lfloor log_21\rfloor+1\le log_2\frac{n-1}{2}+1&lt;log_2(n-1)&lt;log_2n$ 次。<br>由上述分析，我们得知，在 $n&gt;2$ 的情况下，我们可以在不超过 $log_2n$ 次流程下，每次流程不超过 $log_2n$ 次合理倾倒下，即在总共不超过 $(log_2n)^2$ 次合理倾倒下，将一个容器的盛水量清空。<br>当 $n=1,2$ 时，有抽屉原理，必定有一个容器一开始就是空的，只需倾倒0次即可。</li>
 </ol>
 ]]></content>
       <categories>
@@ -256,16 +228,16 @@
       </tags>
   </entry>
   <entry>
-    <title>二重积分</title>
-    <url>/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/</url>
-    <content><![CDATA[]]></content>
+    <title>声明（关于数学公式无法正常显示的bug）（已解决）</title>
+    <url>/2024/06/26/%E5%A3%B0%E6%98%8E/%E5%A3%B0%E6%98%8E/</url>
+    <content><![CDATA[<p><del>目前遇到行间公式无法正常显示的bug，正在尽力研究，如有相应的解决方案，请联系:</del> 2139475218@qq.com</p>
+<p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
+]]></content>
       <categories>
-        <category>学习</category>
-        <category>数学分析</category>
-        <category>二重积分</category>
+        <category>声明</category>
       </categories>
       <tags>
-        <tag>数学分析</tag>
+        <tag>声明</tag>
       </tags>
   </entry>
   <entry>
@@ -285,6 +257,35 @@
       </tags>
   </entry>
   <entry>
+    <title>二重积分</title>
+    <url>/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>学习</category>
+        <category>数学分析</category>
+        <category>二重积分</category>
+      </categories>
+      <tags>
+        <tag>数学分析</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常微分方程</title>
+    <url>/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将整理遇到的所有<strong>常微分方程</strong>知识点——做题&amp;复习。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>常微分方程</category>
+      </categories>
+      <tags>
+        <tag>复习</tag>
+        <tag>常微分方程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>高等代数</title>
     <url>/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/</url>
     <content><![CDATA[<blockquote>
@@ -301,20 +302,6 @@
       </tags>
   </entry>
   <entry>
-    <title>2020年数三</title>
-    <url>/2024/06/26/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E6%95%B0%E4%B8%89/2020/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>历年卷</category>
-        <category>数三</category>
-        <category>2020</category>
-      </categories>
-      <tags>
-        <tag>历年卷</tag>
-        <tag>数三</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>概率论</title>
     <url>/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/</url>
     <content><![CDATA[<blockquote>
@@ -328,6 +315,20 @@
       <tags>
         <tag>复习</tag>
         <tag>概率论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>2020年数三</title>
+    <url>/2024/06/26/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E6%95%B0%E4%B8%89/2020/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>历年卷</category>
+        <category>数三</category>
+        <category>2020</category>
+      </categories>
+      <tags>
+        <tag>历年卷</tag>
+        <tag>数三</tag>
       </tags>
   </entry>
 </search>
