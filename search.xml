@@ -7,11 +7,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title></title>
-    <url>/2024/06/27/model/model/</url>
-    <content><![CDATA[<span id="more"></span>]]></content>
-  </entry>
-  <entry>
     <title>数学公式显示问题</title>
     <url>/2024/06/26/Hexo/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/</url>
     <content><![CDATA[<ul>
@@ -45,6 +40,37 @@
       </categories>
       <tags>
         <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>/2024/06/27/model/model/</url>
+    <content><![CDATA[<span id="more"></span>]]></content>
+  </entry>
+  <entry>
+    <title>2024暑期日程表（暂定）</title>
+    <url>/2024/06/24/plan/2024%E6%9A%91%E6%9C%9F%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</url>
+    <content><![CDATA[<ul>
+<li>7：00 起床</li>
+<li>7：30-8：00 跑步</li>
+<li>8：00-8：20 吃饭</li>
+<li>8：20-8：50 背单词</li>
+<li>8：50-9：10 洗澡</li>
+<li>9：10-11：40 做套卷子（图书馆）</li>
+<li>11：40-12：40 吃个饭+晾衣服</li>
+<li>12：40-13：40 睡个觉</li>
+<li>13：40-17：40 纠错、复习</li>
+<li>17：40-18：40 吃饭</li>
+<li>18：40-21：40 学习</li>
+<li>22：00-23：30 快乐玩耍</li>
+</ul>
+]]></content>
+      <categories>
+        <category>作息表</category>
+        <category>2024暑期作息表</category>
+      </categories>
+      <tags>
+        <tag>作息表</tag>
       </tags>
   </entry>
   <entry>
@@ -117,42 +143,14 @@
       </tags>
   </entry>
   <entry>
-    <title>2024暑期日程表（暂定）</title>
-    <url>/2024/06/24/plan/2024%E6%9A%91%E6%9C%9F%E6%97%A5%E7%A8%8B%E5%AE%89%E6%8E%92%EF%BC%88%E6%9A%82%E5%AE%9A%EF%BC%89/</url>
-    <content><![CDATA[<ul>
-<li>7：00 起床</li>
-<li>7：30-8：00 跑步</li>
-<li>8：00-8：20 吃饭</li>
-<li>8：20-8：50 背单词</li>
-<li>8：50-9：10 洗澡</li>
-<li>9：10-11：40 做套卷子（图书馆）</li>
-<li>11：40-12：40 吃个饭+晾衣服</li>
-<li>12：40-13：40 睡个觉</li>
-<li>13：40-17：40 纠错、复习</li>
-<li>17：40-18：40 吃饭</li>
-<li>18：40-21：40 学习</li>
-<li>22：00-23：30 快乐玩耍</li>
-</ul>
+    <title>历年卷问题汇总</title>
+    <url>/2024/06/27/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
+    <content><![CDATA[<h1><span id="汇总">汇总</span></h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">task</span><br><span class="line">from &quot;_posts/历年卷&quot;</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>
+<h1><span id="待复习">待复习</span></h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">task</span><br><span class="line">from &quot;_posts/历年卷&quot;</span><br><span class="line">where !completed</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>
 ]]></content>
-      <categories>
-        <category>作息表</category>
-        <category>2024暑期作息表</category>
-      </categories>
       <tags>
-        <tag>作息表</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>声明（关于数学公式无法正常显示的bug）（已解决）</title>
-    <url>/2024/06/26/%E5%A3%B0%E6%98%8E/%E5%A3%B0%E6%98%8E/</url>
-    <content><![CDATA[<p><del>目前遇到行间公式无法正常显示的bug，正在尽力研究，如有相应的解决方案，请联系:</del> 2139475218@qq.com</p>
-<p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
-]]></content>
-      <categories>
-        <category>声明</category>
-      </categories>
-      <tags>
-        <tag>声明</tag>
+        <tag>历年卷</tag>
+        <tag>问题汇总</tag>
       </tags>
   </entry>
   <entry>
@@ -224,8 +222,17 @@
 <h2><span id="solution-3">solution 3</span></h2><ol>
 <li>$v_y=vsin\theta,v_x=vcos\theta$ ,由高中知识 $y=vsin\theta t- \frac{1}{2}gt^2,x=vcos\theta t$<br>从而我们有<br>$$<br>\begin{align}<br>L(v,\theta)&amp;= \int ds\\<br>&amp;= \int \sqrt{(dx)^2+(dy)^{2}}\\<br>&amp;= \int\sqrt{(\frac{dx}{dt})^2+(\frac{dy}{dt})^2}dt\\<br>&amp;= \int_0^{\frac{2vsin\theta}{g}}\sqrt{(vcos\theta)^2+(vsin\theta-gt)^2}dt<br>\end{align}<br>$$</li>
 <li>显然，$\theta=\frac{\pi}{2}$ 时，物体的运动为竖直上抛运动。由高中知识： $L(v,\frac{\pi}{2})=2\cdot\frac{v^2-0^2}{2g}=\frac{v^2}{g}$<br>$$<br>\begin{align}<br>L(v,\theta)&amp;=\int_0^{\frac{2vsin\theta}{g}}\sqrt{(vcos\theta)^2+(vsin\theta-(gt))^2}\frac{1}{g}d(gt)\\<br>&amp;\overset{m=gt}{=}\frac{1}{g}\int_0^{2vsin\theta}\sqrt{(vcos\theta)^2+(vsin\theta-m)^2}dm\\<br>&amp;= \frac{1}{g}\int_0^{2vsin\theta}\sqrt{sin^2\theta[(vcot\theta)^2+(v-\frac{m}{sin\theta})^2]}sin\theta d\frac{m}{sin\theta}\\<br>&amp;\overset{k=\frac{m}{sin\theta}}{=}\frac{sin^2\theta}{g}\int_0^{2v}\sqrt{(vcot\theta)^2+(v-k)^2}dk<br>\end{align}<br>$$<br>当 $\theta=\frac{\pi}{4}$ 时<br>$$<br>\begin{align}<br>L(v,\frac{\pi}{4})&amp;= \frac{1}{2g}\int_0^{2v}\sqrt{v^2+(v-k)^2}dk\\<br>&amp;&gt; \frac{1}{2g}\int_0^{2v}vdk\\<br>&amp;= \frac{1}{2g}\cdot 2v^2=\frac{v^2}{g}=L(v,\frac{\pi}{2})<br>\end{align}<br>$$</li>
-<li>还没写出来。。。</li>
+<li>还没写出来。。。目前已知是个定值。<br>$$<br>\begin{align}<br>L(v,\theta)&amp;= \frac{1}{g}\int_0^{2vsin\theta}\sqrt{(vcos\theta)^2+(m-vsin\theta)^2}dm\\<br>&amp;\overset{s=m-vsin\theta}{=} \frac{1}{g}\int_{-vsin\theta}^{vsin\theta}\sqrt{(vcos\theta)^2+s^2}ds\\<br>&amp;\overset{t=\frac{s}{vcos\theta}}{=}\frac{vcos\theta}{g}\int_{-tan\theta}^{tan\theta}\sqrt{1+t^2}vcos\theta dt\\<br>&amp;\overset{t=tan\varphi}{=}\frac{v^2cos^2\theta}{g}\int_{-\theta}^{\theta}\frac{1}{|cos\varphi|}\frac{d\varphi}{cos^2\varphi}\\<br>&amp;=\frac{v^2cos^2\theta}{g}\int_{-\theta}^\theta\frac{cos\varphi d\varphi}{cos^4\varphi}\\<br>&amp;= \int_{-\theta}^{\theta}\frac{dsin\varphi}{(1-sin^2\varphi)^2}\\<br>&amp;\overset{x=sin\varphi}{=} \frac{1}{4}\int_{-sin\theta}^{sin\theta}[\frac{1}{1+x}+\frac{1}{1-x}+\frac{1}{(1+x)^2}+\frac{1}{(1-x)^2}]dx<br>\end{align}<br>$$<blockquote>
+<p>这里用的是多项式的拆解<br>由于 $(1-x^2)^2=(1-x)^2\cdot(1+x)^2$ ，故我们将 $\frac{1}{(1-x^2)^2}$ 分解为以下形式：<br>$$<br>\begin{align}<br>\frac{1}{(1-x^2)^{2}}&amp;=\frac{a_1}{1+x}+\frac{a_2}{1-x}+\frac{a_3}{(1-x)^2}+\frac{a_4}{(1+x)^2}\\<br>&amp;= \frac{a_1(1-x^2)(1-x)+a_2(1-x^2)(1+x)+a_3(1+x)^2+a_4(1-x)^2}{(1-x^2)^2}\\<br>&amp;= \frac{(a_1+a_2+a_3+a_4)+(-a_1+a_2+2a_3-2a_4)x+(-a_1-a_2+a_3+a_4)x^2+(-a_1+a_2)x^3}{(1-x^2)^2}\\<br>\end{align}<br>$$<br>从而，我们有 $$\begin{cases}<br>a_1+a_2+a_3+a_{4} =1\\</p>
+</blockquote>
+</li>
 </ol>
+<p>-a_1+a_2+2a_3-2a_4=0\\<br>-a_1-a_2+a_3+a_4=0\\<br>-a_1+a_2=0<br>\end{cases}$$</p>
+<blockquote>
+<p>解得 $a_1=a_2=a_3=a_4= \frac{1}{4}$</p>
+</blockquote>
+<p>$$<br>\begin{align}</p>
+<p>\end{align}<br>$$</p>
 <h2><span id="solution-4">solution 4</span></h2><ol>
 <li>不妨设 $\frac{b}{a}=p+\varepsilon,0\le\varepsilon&lt;1$ ，则$q=\frac{b}{a}+(1-\varepsilon)$<br>从而，我们有 $b-pa=\varepsilon a,qa-b=(1-\varepsilon)a,0\le\varepsilon&lt;1$<br>故而 <ol>
 <li>$min\{b-pa,qa-b\}=\varepsilon a$ ，此时，$\varepsilon\le1-\varepsilon\Rightarrow\varepsilon\le\frac{1}{2}$<br>从而有 $min\{b-pa,qa-b\}\le\frac{1}{2}a$</li>
@@ -246,17 +253,6 @@
       </tags>
   </entry>
   <entry>
-    <title>历年卷问题汇总</title>
-    <url>/2024/06/27/%E5%8E%86%E5%B9%B4%E5%8D%B7/%E5%8E%86%E5%B9%B4%E5%8D%B7%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/</url>
-    <content><![CDATA[<h1><span id="汇总">汇总</span></h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">task</span><br><span class="line">from &quot;_posts/历年卷&quot;</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>
-<h1><span id="待复习">待复习</span></h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">task</span><br><span class="line">from &quot;_posts/历年卷&quot;</span><br><span class="line">where !completed</span><br><span class="line">group by file.link</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>历年卷</tag>
-        <tag>问题汇总</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>常微分方程</title>
     <url>/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/</url>
     <content><![CDATA[<blockquote>
@@ -273,6 +269,19 @@
       </tags>
   </entry>
   <entry>
+    <title>声明（关于数学公式无法正常显示的bug）（已解决）</title>
+    <url>/2024/06/26/%E5%A3%B0%E6%98%8E/%E5%A3%B0%E6%98%8E/</url>
+    <content><![CDATA[<p><del>目前遇到行间公式无法正常显示的bug，正在尽力研究，如有相应的解决方案，请联系:</del> 2139475218@qq.com</p>
+<p>主要问题出在 hexo 是先将md文件转义为html文件，再由mathjax进行公式编译，因此，公式内部部分字符如换行符<code>\\</code>会被先转义为单个<code>\</code>，从而无法进行换行。（这不是不能编译的原因，这只会导致公式无法换行）<br>另外，我在编辑公式时使用了 <code>\begin&#123;align*&#125;\end&#123;align*&#125;</code>用于公式对齐，这就导致先默认斜体再编译公式，这才导致公式无法正常显示。<br>同样的，我在公式中加入了 <code>~~~~~</code> 用于添加空格，这也会让系统先处理删除线再编译公式，同样导致公式无法正常编译。</p>
+]]></content>
+      <categories>
+        <category>声明</category>
+      </categories>
+      <tags>
+        <tag>声明</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>二重积分</title>
     <url>/2024/06/25/review/%E6%95%B0%E5%AD%A6%E5%88%86%E6%9E%90/%E4%BA%8C%E9%87%8D%E7%A7%AF%E5%88%86/</url>
     <content><![CDATA[]]></content>
@@ -283,22 +292,6 @@
       </categories>
       <tags>
         <tag>数学分析</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高等代数</title>
-    <url>/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/</url>
-    <content><![CDATA[<blockquote>
-<p>本文将整理遇到的所有<strong>高等代数</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>学习</category>
-        <category>高等代数</category>
-      </categories>
-      <tags>
-        <tag>复习</tag>
-        <tag>高等代数</tag>
       </tags>
   </entry>
   <entry>
@@ -331,6 +324,22 @@
       <tags>
         <tag>复习</tag>
         <tag>概率论</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高等代数</title>
+    <url>/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/</url>
+    <content><![CDATA[<blockquote>
+<p>本文将整理遇到的所有<strong>高等代数</strong>知识点——做题&amp;复习。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>学习</category>
+        <category>高等代数</category>
+      </categories>
+      <tags>
+        <tag>复习</tag>
+        <tag>高等代数</tag>
       </tags>
   </entry>
   <entry>
