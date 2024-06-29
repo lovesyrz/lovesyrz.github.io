@@ -29,7 +29,7 @@
 <meta property="og:description" content="1 拓扑空间拓扑空间 #定义集合 $X$ 上的拓扑是 $X$ 的子集的一个族 $\mathcal{T}$ ，满足：  $\emptyset,X\in\mathcal{T}$  $\mathcal{T}$ 的任意子族的元素的并在 $\mathcal{T}$ 中 $\mathcal{T}$ 的任意有限子族的元素的交在 $\mathcal{T}$ 中一个指定了拓扑 $\mathcal{T}$ 的集合 $">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-29T12:33:25.811Z">
-<meta property="article:modified_time" content="2024-06-29T13:23:05.026Z">
+<meta property="article:modified_time" content="2024-06-29T13:39:18.289Z">
 <meta property="article:author" content="Kangjie Lou">
 <meta property="article:tag" content="2024夏令营">
 <meta name="twitter:card" content="summary">
@@ -158,7 +158,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -238,7 +238,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-06-29 20:33:25 / Modified: 21:23:05" itemprop="dateCreated datePublished" datetime="2024-06-29T20:33:25+08:00">2024-06-29</time>
+      <time title="Created: 2024-06-29 20:33:25 / Modified: 21:39:18" itemprop="dateCreated datePublished" datetime="2024-06-29T20:33:25+08:00">2024-06-29</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -289,9 +289,11 @@
 </ol>
 <ul>
 <li>离散拓扑： $X$ 所有子集的族</li>
-<li>密着拓扑/平庸拓扑（trivial topology)：$\\\{\emptyset,X\\\}$ </li>
-<li>拓扑分类约详细，其包含的子集族的元素越多。若 $\mathcal{T}’\supset\mathcal{T}$ ，则称 $\mathcal{T}’$ <strong>细于</strong> $\mathcal{T}$ ，$\mathcal{T}$ <strong>粗于</strong> $\mathcal{T}’$ <h1><span id="2-拓扑的基">2 拓扑的基</span></h1><strong>拓扑的基</strong> #定义<br>$X$ 的某拓扑的一个基是 $X$ 的子集的一个族 $\mathcal{B}$ ，其成员称为<strong>基元素</strong>，满足以下条件：</li>
+<li>密着拓扑/平庸拓扑（trivial topology)：$\{\emptyset,X\}$ </li>
+<li>拓扑分类约详细，其包含的子集族的元素越多。若 $\mathcal{T}’\supset\mathcal{T}$ ，则称 $\mathcal{T}’$ <strong>细于</strong> $\mathcal{T}$ ，$\mathcal{T}$ <strong>粗于</strong> $\mathcal{T}’$ <span id="more"></span>
+<h1><span id="2-拓扑的基">2 拓扑的基</span></h1></li>
 </ul>
+<p><strong>拓扑的基</strong> #定义<br>$X$ 的某拓扑的一个基是 $X$ 的子集的一个族 $\mathcal{B}$ ，其成员称为<strong>基元素</strong>，满足以下条件：</p>
 <ol>
 <li>对每一个 $x\in X$ ，至少存在一个包含 $x$ 的基元素 $B$ </li>
 <li>若 $x$ 属于两个基元素 $B_1,B_2$ 的交，则存在一个包含 $x$ 的一个基元素 $B_3$ ，使得 $B_3\subset B_1\cap B_2$ <h2><span id="拓扑的基生成拓扑">拓扑的基生成拓扑</span></h2>若 $\mathcal{B}$ 满足以上条件，我们定义<strong>由 $\mathcal{B}$ 生成的拓扑 $\mathcal{T}$</strong> 如下：<br>若对每一个 $x\in U$ ，存在一个基元素 $B\in\mathcal{B}$ ，使得 $x\in B$ 且 $B\subset U$ ，则 $X$ 的子集 $U$ 称为 $X$ 的开集。</li>
@@ -300,9 +302,10 @@
 <h2><span id="由拓扑找出生成的基">由拓扑找出生成的基</span></h2><p>设 $X$ 是一个拓扑空间， $\mathcal{C}$ 是 $X$ 的开集的一个族，它满足对于 $X$ 的每一个开集 $U$ 及每一个 $x\in U$ ，存在 $\mathcal{C}$ 的一个元素 $C$ ，使得 $x\in C\subset U$ ，那么  $\mathcal{C}$ 就是 $X$ 上这个拓扑的一个基。</p>
 <h2><span id="拓扑的比较">拓扑的比较</span></h2><p>$\mathcal{B,B’}$ 分别是 $X$ 的拓扑 $\mathcal{T,T’}$ 的基，则下列条件等价：</p>
 <ol>
-<li>$\mathcal{T’}$ 细于 $\mathcal{T}$ </li>
+<li><p>$\mathcal{T’}$ 细于 $\mathcal{T}$ </p>
+</li>
 <li><p>对每个 $x\in X$ 及包含 $x$ 的每一个基元素 $B\in\mathcal{B}$ ，存在一个基元素 $B’\in\mathcal{B’}$ ，使得 $x\in B’\subset B$ </p>
-<p>$\mathbb{R}$ 上的<strong>标准拓扑</strong>：$\mathcal{B}$ 为实直线上的所有开区间的族 $(a,b)=\\\{x|a&lt;x&lt;b\\\}$<br>$\mathbb{R}_l$ 的基：所有半开区间的族 $\mathcal{B’}$ $[a,b)=\\\{x|a\le x&lt;b\\\}$<br>$\mathbb{R}_K$ 的基：所有开区间以及形如 $(a,b)-K$ 形式的集合的族<br>显然， $\mathbb{R}_l,\mathbb{R}_K$ 严格细于标准拓扑</p>
+<p>$\mathbb{R}$ 上的<strong>标准拓扑</strong>：$\mathcal{B}$ 为实直线上的所有开区间的族 $(a,b)=\{x|a&lt;x&lt;b\}$<br>$\mathbb{R}_l$ 的基：所有半开区间的族 $\mathcal{B’}$ $[a,b)=\{x|a\le x&lt;b\}$<br>$\mathbb{R}_K$ 的基：所有开区间以及形如 $(a,b)-K$ 形式的集合的族<br>显然， $\mathbb{R}_l,\mathbb{R}_K$ 严格细于标准拓扑</p>
 </li>
 </ol>
 
@@ -340,6 +343,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/06/29/%E8%B4%A6%E5%8D%95/%E4%B8%83%E6%9C%88/" rel="next" title="">
+                   <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
@@ -371,14 +377,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>Word count total: </span>
-    <span title="Word count total">13k</span>
+    <span title="Word count total">15k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>Reading time total &asymp;</span>
-    <span title="Reading time total">12 mins.</span>
+    <span title="Reading time total">14 mins.</span>
   </span>
 </div>
 <div class="busuanzi-count">
