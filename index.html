@@ -152,18 +152,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">16</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -192,6 +192,357 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lovesyrz.gihub.io/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/a.png">
+      <meta itemprop="name" content="Kangjie Lou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">拓扑空间与连续函数</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-06-29 20:33:25 / Modified: 21:23:05" itemprop="dateCreated datePublished" datetime="2024-06-29T20:33:25+08:00">2024-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/" itemprop="url" rel="index"><span itemprop="name">点集拓扑</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1><span id="1-拓扑空间">1 拓扑空间</span></h1><p><strong>拓扑空间</strong> #定义<br>集合 $X$ 上的<strong>拓扑</strong>是 $X$ 的子集的一个族 $\mathcal{T}$ ，满足：</p>
+<ol>
+<li>$\emptyset,X\in\mathcal{T}$ </li>
+<li>$\mathcal{T}$ 的任意子族的元素的并在 $\mathcal{T}$ 中</li>
+<li>$\mathcal{T}$ 的任意有限子族的元素的交在 $\mathcal{T}$ 中<br>一个指定了拓扑 $\mathcal{T}$ 的集合 $X$ 叫做一个<strong>拓扑空间</strong>，记为 $(X,\mathcal{T})$ </li>
+</ol>
+<ul>
+<li>离散拓扑： $X$ 所有子集的族</li>
+<li>密着拓扑/平庸拓扑（trivial topology)：$\\\{\emptyset,X\\\}$ </li>
+<li>拓扑分类约详细，其包含的子集族的元素越多。若 $\mathcal{T}’\supset\mathcal{T}$ ，则称 $\mathcal{T}’$ <strong>细于</strong> $\mathcal{T}$ ，$\mathcal{T}$ <strong>粗于</strong> $\mathcal{T}’$ <h1><span id="2-拓扑的基">2 拓扑的基</span></h1><strong>拓扑的基</strong> #定义<br>$X$ 的某拓扑的一个基是 $X$ 的子集的一个族 $\mathcal{B}$ ，其成员称为<strong>基元素</strong>，满足以下条件：</li>
+</ul>
+<ol>
+<li>对每一个 $x\in X$ ，至少存在一个包含 $x$ 的基元素 $B$ </li>
+<li>若 $x$ 属于两个基元素 $B_1,B_2$ 的交，则存在一个包含 $x$ 的一个基元素 $B_3$ ，使得 $B_3\subset B_1\cap B_2$ <h2><span id="拓扑的基生成拓扑">拓扑的基生成拓扑</span></h2>若 $\mathcal{B}$ 满足以上条件，我们定义<strong>由 $\mathcal{B}$ 生成的拓扑 $\mathcal{T}$</strong> 如下：<br>若对每一个 $x\in U$ ，存在一个基元素 $B\in\mathcal{B}$ ，使得 $x\in B$ 且 $B\subset U$ ，则 $X$ 的子集 $U$ 称为 $X$ 的开集。</li>
+</ol>
+<p>设 $X$ 是一个集合， $\mathcal{B}$ 是 $X$ 的拓扑 $\mathcal{T}$ 的一个基，则 $\mathcal{T}$ 等于 $\mathcal{B}$ 中元素所有的并的族</p>
+<h2><span id="由拓扑找出生成的基">由拓扑找出生成的基</span></h2><p>设 $X$ 是一个拓扑空间， $\mathcal{C}$ 是 $X$ 的开集的一个族，它满足对于 $X$ 的每一个开集 $U$ 及每一个 $x\in U$ ，存在 $\mathcal{C}$ 的一个元素 $C$ ，使得 $x\in C\subset U$ ，那么  $\mathcal{C}$ 就是 $X$ 上这个拓扑的一个基。</p>
+<h2><span id="拓扑的比较">拓扑的比较</span></h2><p>$\mathcal{B,B’}$ 分别是 $X$ 的拓扑 $\mathcal{T,T’}$ 的基，则下列条件等价：</p>
+<ol>
+<li>$\mathcal{T’}$ 细于 $\mathcal{T}$ </li>
+<li><p>对每个 $x\in X$ 及包含 $x$ 的每一个基元素 $B\in\mathcal{B}$ ，存在一个基元素 $B’\in\mathcal{B’}$ ，使得 $x\in B’\subset B$ </p>
+<p>$\mathbb{R}$ 上的<strong>标准拓扑</strong>：$\mathcal{B}$ 为实直线上的所有开区间的族 $(a,b)=\\\{x|a&lt;x&lt;b\\\}$<br>$\mathbb{R}_l$ 的基：所有半开区间的族 $\mathcal{B’}$ $[a,b)=\\\{x|a\le x&lt;b\\\}$<br>$\mathbb{R}_K$ 的基：所有开区间以及形如 $(a,b)-K$ 形式的集合的族<br>显然， $\mathbb{R}_l,\mathbb{R}_K$ 严格细于标准拓扑</p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lovesyrz.gihub.io/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91%E6%B1%87%E6%80%BB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/a.png">
+      <meta itemprop="name" content="Kangjie Lou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91%E6%B1%87%E6%80%BB/" class="post-title-link" itemprop="url">点集拓扑汇总</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-06-29 18:55:34 / Modified: 18:59:02" itemprop="dateCreated datePublished" datetime="2024-06-29T18:55:34+08:00">2024-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/" itemprop="url" rel="index"><span itemprop="name">点集拓扑</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E6%B1%87%E6%80%BB/" itemprop="url" rel="index"><span itemprop="name">汇总</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>101</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">table</span><br><span class="line">chapter, done</span><br><span class="line">from &quot;_posts/review/点集拓扑&quot;</span><br><span class="line">where file.name != &quot;点集拓扑汇总&quot;</span><br><span class="line">sort chapter</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://lovesyrz.gihub.io/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E9%9B%86%E5%90%88%E8%AE%BA%E4%B8%8E%E9%80%BB%E8%BE%91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/a.png">
+      <meta itemprop="name" content="Kangjie Lou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E9%9B%86%E5%90%88%E8%AE%BA%E4%B8%8E%E9%80%BB%E8%BE%91/" class="post-title-link" itemprop="url">集合论与逻辑</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-06-29 18:40:56 / Modified: 20:35:18" itemprop="dateCreated datePublished" datetime="2024-06-29T18:40:56+08:00">2024-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/" itemprop="url" rel="index"><span itemprop="name">点集拓扑</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>483</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1><span id="1-基本概念">1 基本概念</span></h1><h1><span id="2-函数">2 函数</span></h1><h1><span id="3-关系">3 关系</span></h1><ul>
+<li>关系</li>
+<li>等价关系（自反、传递、对称）</li>
+<li>等价类</li>
+<li>分拆</li>
+<li>序关系（可比较、非自反、传递）</li>
+<li>字典序（1920&gt;999)<h1><span id="4-整数和实数">4 整数和实数</span></h1></li>
+<li>有序域</li>
+<li>线性连续统</li>
+<li>归纳</li>
+<li>截 （$S_{n+1}=\\\{1,2,\cdots,n\\\}$）</li>
+<li>良序性质</li>
+<li>强归纳原理（$A=Z_+$）</li>
+</ul>
+<h1><span id="5-笛卡尔积">5 笛卡尔积</span></h1><ul>
+<li>指标函数</li>
+<li>指标集</li>
+<li>集的加标族/加标集族</li>
+<li>m串</li>
+<li>笛卡尔积</li>
+<li>m维欧式空间</li>
+</ul>
+<h1><span id="6-有限集">6 有限集</span></h1><ul>
+<li>基数</li>
+<li>有限集不存在真子集与其一一对应</li>
+</ul>
+<h1><span id="7-可数集和不可数集">7 可数集和不可数集</span></h1><ul>
+<li>可数集 （$A$ 与 $Z_+$ 一一对应）</li>
+</ul>
+<h1><span id="8-归纳定义原理">8 归纳定义原理</span></h1><h1><span id="9-无限集与选择公理">9 无限集与选择公理</span></h1><ul>
+<li>无限集<ol>
+<li>存在一个单射 $f:Z_+\rightarrow A$ </li>
+<li>$A$ 与其真子集间存在一一对应</li>
+</ol>
+</li>
+<li>选择公理<br>  给定由两两无交的非空集合构成的一个族 $\mathcal{A}$ ，存在一个集合 $C$ ，使得 $C$ 与 $\mathcal{A}$ 的每一个元素恰好有一个公共元。即对于每一个 $A\in\mathcal{A}$ ，集合 $C\cap A$ 包含唯一一个元素</li>
+<li>选择函数的存在性</li>
+</ul>
+<h1><span id="10-良序集">10 良序集</span></h1><h1><span id="11-极大原理">11 极大原理</span></h1><ul>
+<li>严格偏序（非自反性、传递性）</li>
+<li>极大原理<br>  设 $A$ 是一个集合 $\prec$ 为 $A$ 上一个严格偏序，则存在 $A$ 中的一个极大全序子集 $B$ </li>
+<li>Zorn引理</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -441,7 +792,7 @@
           <ul>
 <li>如果你已经按照其它教程更换了渲染引擎，请直接转至<a href="#问题与解决方案">问题与解决方案</a>版块（里面可能会有你需要的答案，仅以我自己遇到的问题为参考）</li>
 </ul>
-<p>我们用hexo+github/gitee搭建个人博客，会发现无法显示markdown文件里的latex公式，这是因为hexo默认支持的hexo-renderer-marked渲染器不支持latex公式。那我们应该怎样做才能支持显示latex公式呢？以next主题为例，目前Next支持两种数学公式渲染引擎，分别为Mathjax和Katex。由于Mathjax支持的更为全面，因此我们选择Mathjax。</p>
+<p>我们用hexo+github/gitee搭建个人博客，会发现无法显示markdown文件里的latex公式，这是因为hexo默认支持的hexo-renderer-marked渲染器不支持latex公式。那我们应该怎样做才能支持显示latex公式呢？以next主题为例，目前Next支持两种数学公式渲染引擎，分别为Mathjax和Katex。由于Mathjax支持的更为全面，因此我们选择Mathjax。<br>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2024/06/26/Hexo/%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%98/#more" rel="contents">
@@ -633,7 +984,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>51</span>
+      <span>65</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -652,13 +1003,13 @@
     
     <div class="post-body" itemprop="articleBody">
           <ul>
-<li><input disabled type="checkbox"> 间断点的类别</li>
-<li><input disabled type="checkbox"> 不同函数收敛半径的关系</li>
-<li><input disabled type="checkbox"> 二元正态分布的相关系数</li>
-<li><input disabled type="checkbox"> 极值点的判定</li>
-<li><input disabled type="checkbox"> 二阶线性常微分方程</li>
-<li><input disabled type="checkbox"> 似然函数</li>
-<li><input disabled type="checkbox"> 矩阵……</li>
+<li>[ ] 间断点的类别</li>
+<li>[ ] 不同函数收敛半径的关系</li>
+<li>[ ] 二元正态分布的相关系数</li>
+<li>[ ] 极值点的判定</li>
+<li>[ ] 二阶线性常微分方程</li>
+<li>[ ] 似然函数</li>
+<li>[ ] 矩阵……</li>
 </ul>
 
       
@@ -745,14 +1096,14 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>10k</span>
+      <span>7.8k</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
         <i class="far fa-clock"></i>
       </span>
       <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>9 mins.</span>
+      <span>7 mins.</span>
     </span>
 </div>
 
@@ -888,324 +1239,6 @@
     
     <div class="post-body" itemprop="articleBody">
           
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lovesyrz.gihub.io/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/a.png">
-      <meta itemprop="name" content="Kangjie Lou">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/25/review/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" class="post-title-link" itemprop="url">常微分方程</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-06-25 12:19:36" itemprop="dateCreated datePublished" datetime="2024-06-25T12:19:36+08:00">2024-06-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-26 13:52:25" itemprop="dateModified" datetime="2024-06-26T13:52:25+08:00">2024-06-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E5%B8%B8%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/" itemprop="url" rel="index"><span itemprop="name">常微分方程</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>30</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>本文将整理遇到的所有<strong>常微分方程</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lovesyrz.gihub.io/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/a.png">
-      <meta itemprop="name" content="Kangjie Lou">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/25/review/%E6%A6%82%E7%8E%87%E8%AE%BA/%E6%A6%82%E7%8E%87%E8%AE%BA/" class="post-title-link" itemprop="url">概率论</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-06-25 12:19:07" itemprop="dateCreated datePublished" datetime="2024-06-25T12:19:07+08:00">2024-06-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-26 13:52:28" itemprop="dateModified" datetime="2024-06-26T13:52:28+08:00">2024-06-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E6%A6%82%E7%8E%87%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">概率论</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>28</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>本文将整理遇到的所有<strong>概率论</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://lovesyrz.gihub.io/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/a.png">
-      <meta itemprop="name" content="Kangjie Lou">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | Hexo">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/06/25/review/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/" class="post-title-link" itemprop="url">高等代数</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">Posted on</span>
-
-      <time title="Created: 2024-06-25 12:06:57" itemprop="dateCreated datePublished" datetime="2024-06-25T12:06:57+08:00">2024-06-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-26 13:52:30" itemprop="dateModified" datetime="2024-06-26T13:52:30+08:00">2024-06-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">In</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index"><span itemprop="name">学习</span></a>
-        </span>
-          , 
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%AD%A6%E4%B9%A0/%E9%AB%98%E7%AD%89%E4%BB%A3%E6%95%B0/" itemprop="url" rel="index"><span itemprop="name">高等代数</span></a>
-        </span>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="Word count in article">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">Word count in article: </span>
-      <span>29</span>
-    </span>
-    <span class="post-meta-item" title="Reading time">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">Reading time &asymp;</span>
-      <span>1 mins.</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <blockquote>
-<p>本文将整理遇到的所有<strong>高等代数</strong>知识点——做题&amp;复习。</p>
-</blockquote>
-
       
     </div>
 

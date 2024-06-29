@@ -1,0 +1,450 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"lovesyrz.gihub.io","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"location":"right: 50px; top: 30px;","facade":""}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1 拓扑空间拓扑空间 #定义集合 $X$ 上的拓扑是 $X$ 的子集的一个族 $\mathcal{T}$ ，满足：  $\emptyset,X\in\mathcal{T}$  $\mathcal{T}$ 的任意子族的元素的并在 $\mathcal{T}$ 中 $\mathcal{T}$ 的任意有限子族的元素的交在 $\mathcal{T}$ 中一个指定了拓扑 $\mathcal{T}$ 的集合 $">
+<meta property="og:type" content="article">
+<meta property="og:title" content="拓扑空间与连续函数">
+<meta property="og:url" content="http://lovesyrz.gihub.io/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="1 拓扑空间拓扑空间 #定义集合 $X$ 上的拓扑是 $X$ 的子集的一个族 $\mathcal{T}$ ，满足：  $\emptyset,X\in\mathcal{T}$  $\mathcal{T}$ 的任意子族的元素的并在 $\mathcal{T}$ 中 $\mathcal{T}$ 的任意有限子族的元素的交在 $\mathcal{T}$ 中一个指定了拓扑 $\mathcal{T}$ 的集合 $">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-29T12:33:25.811Z">
+<meta property="article:modified_time" content="2024-06-29T13:23:05.026Z">
+<meta property="article:author" content="Kangjie Lou">
+<meta property="article:tag" content="2024夏令营">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://lovesyrz.gihub.io/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://lovesyrz.gihub.io/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0/","path":"2024/06/29/review/点集拓扑/拓扑空间与连续函数/","title":"拓扑空间与连续函数"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>拓扑空间与连续函数 | Hexo</title>
+  
+
+
+
+
+
+
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/love.js"></script>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Hexo</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-主页"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>主页</a></li><li class="menu-item menu-item-标签"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-分类"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-归档"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="Searching..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">1 拓扑空间</span></a></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-text">2 拓扑的基</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">拓扑的基生成拓扑</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">由拓扑找出生成的基</span></a></li><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-text">拓扑的比较</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Kangjie Lou"
+      src="/images/a.png">
+  <p class="site-author-name" itemprop="name">Kangjie Lou</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">16</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/lovesyrz" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;lovesyrz" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/kangjielouyrz@gmail.com" title="E-Mail → kangjielouyrz@gmail.com" rel="noopener me"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://lovesyrz.gihub.io/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E6%8B%93%E6%89%91%E7%A9%BA%E9%97%B4%E4%B8%8E%E8%BF%9E%E7%BB%AD%E5%87%BD%E6%95%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/a.png">
+      <meta itemprop="name" content="Kangjie Lou">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="拓扑空间与连续函数 | Hexo">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          拓扑空间与连续函数
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+      
+
+      <time title="Created: 2024-06-29 20:33:25 / Modified: 21:23:05" itemprop="dateCreated datePublished" datetime="2024-06-29T20:33:25+08:00">2024-06-29</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/" itemprop="url" rel="index"><span itemprop="name">点集拓扑</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1><span id="1-拓扑空间">1 拓扑空间</span></h1><p><strong>拓扑空间</strong> #定义<br>集合 $X$ 上的<strong>拓扑</strong>是 $X$ 的子集的一个族 $\mathcal{T}$ ，满足：</p>
+<ol>
+<li>$\emptyset,X\in\mathcal{T}$ </li>
+<li>$\mathcal{T}$ 的任意子族的元素的并在 $\mathcal{T}$ 中</li>
+<li>$\mathcal{T}$ 的任意有限子族的元素的交在 $\mathcal{T}$ 中<br>一个指定了拓扑 $\mathcal{T}$ 的集合 $X$ 叫做一个<strong>拓扑空间</strong>，记为 $(X,\mathcal{T})$ </li>
+</ol>
+<ul>
+<li>离散拓扑： $X$ 所有子集的族</li>
+<li>密着拓扑/平庸拓扑（trivial topology)：$\\\{\emptyset,X\\\}$ </li>
+<li>拓扑分类约详细，其包含的子集族的元素越多。若 $\mathcal{T}’\supset\mathcal{T}$ ，则称 $\mathcal{T}’$ <strong>细于</strong> $\mathcal{T}$ ，$\mathcal{T}$ <strong>粗于</strong> $\mathcal{T}’$ <h1><span id="2-拓扑的基">2 拓扑的基</span></h1><strong>拓扑的基</strong> #定义<br>$X$ 的某拓扑的一个基是 $X$ 的子集的一个族 $\mathcal{B}$ ，其成员称为<strong>基元素</strong>，满足以下条件：</li>
+</ul>
+<ol>
+<li>对每一个 $x\in X$ ，至少存在一个包含 $x$ 的基元素 $B$ </li>
+<li>若 $x$ 属于两个基元素 $B_1,B_2$ 的交，则存在一个包含 $x$ 的一个基元素 $B_3$ ，使得 $B_3\subset B_1\cap B_2$ <h2><span id="拓扑的基生成拓扑">拓扑的基生成拓扑</span></h2>若 $\mathcal{B}$ 满足以上条件，我们定义<strong>由 $\mathcal{B}$ 生成的拓扑 $\mathcal{T}$</strong> 如下：<br>若对每一个 $x\in U$ ，存在一个基元素 $B\in\mathcal{B}$ ，使得 $x\in B$ 且 $B\subset U$ ，则 $X$ 的子集 $U$ 称为 $X$ 的开集。</li>
+</ol>
+<p>设 $X$ 是一个集合， $\mathcal{B}$ 是 $X$ 的拓扑 $\mathcal{T}$ 的一个基，则 $\mathcal{T}$ 等于 $\mathcal{B}$ 中元素所有的并的族</p>
+<h2><span id="由拓扑找出生成的基">由拓扑找出生成的基</span></h2><p>设 $X$ 是一个拓扑空间， $\mathcal{C}$ 是 $X$ 的开集的一个族，它满足对于 $X$ 的每一个开集 $U$ 及每一个 $x\in U$ ，存在 $\mathcal{C}$ 的一个元素 $C$ ，使得 $x\in C\subset U$ ，那么  $\mathcal{C}$ 就是 $X$ 上这个拓扑的一个基。</p>
+<h2><span id="拓扑的比较">拓扑的比较</span></h2><p>$\mathcal{B,B’}$ 分别是 $X$ 的拓扑 $\mathcal{T,T’}$ 的基，则下列条件等价：</p>
+<ol>
+<li>$\mathcal{T’}$ 细于 $\mathcal{T}$ </li>
+<li><p>对每个 $x\in X$ 及包含 $x$ 的每一个基元素 $B\in\mathcal{B}$ ，存在一个基元素 $B’\in\mathcal{B’}$ ，使得 $x\in B’\subset B$ </p>
+<p>$\mathbb{R}$ 上的<strong>标准拓扑</strong>：$\mathcal{B}$ 为实直线上的所有开区间的族 $(a,b)=\\\{x|a&lt;x&lt;b\\\}$<br>$\mathbb{R}_l$ 的基：所有半开区间的族 $\mathcal{B’}$ $[a,b)=\\\{x|a\le x&lt;b\\\}$<br>$\mathbb{R}_K$ 的基：所有开区间以及形如 $(a,b)-K$ 形式的集合的族<br>显然， $\mathbb{R}_l,\mathbb{R}_K$ 严格细于标准拓扑</p>
+</li>
+</ol>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>Buy me a coffee</div>
+  <button>
+    Donate
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="Kangjie Lou WeChat Pay">
+        <span>WeChat Pay</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/2024%E5%A4%8F%E4%BB%A4%E8%90%A5/" rel="tag"><i class="fa fa-tag"></i> 2024夏令营</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/06/29/review/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91/%E7%82%B9%E9%9B%86%E6%8B%93%E6%89%91%E6%B1%87%E6%80%BB/" rel="prev" title="点集拓扑汇总">
+                  <i class="fa fa-angle-left"></i> 点集拓扑汇总
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Kangjie Lou</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>Word count total: </span>
+    <span title="Word count total">13k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>Reading time total &asymp;</span>
+    <span title="Reading time total">12 mins.</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div><script color="0,0,255" opacity="0.5" zIndex="-1" count="99" src="https://cdn.jsdelivr.net/npm/canvas-nest.js@1/dist/canvas-nest.js"></script>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="https://cdnjs.cloudflare.com/ajax/libs/ribbon.js/1.0.2/ribbon.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","mhchem":true,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
